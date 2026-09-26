@@ -167,6 +167,14 @@ public final class CustomizationActivity extends Activity {
             });
         }
 
+        if (Shapes.hideDirectoryPatched()) {
+            Switch directory = new Switch(this);
+            directory.setChecked(Shapes.hideDirectoryEnabled(this));
+            body.addView(toggleRow("Hide suggestions", null, directory));
+            // read each time a place sheet opens, so no restart
+            directory.setOnCheckedChangeListener((CompoundButton b, boolean on) -> Shapes.setHideDirectoryEnabled(this, on));
+        }
+
         if (Shapes.betterOfflinePatched()) {
             Switch offline = new Switch(this);
             offline.setChecked(Shapes.betterOfflineEnabled(this));

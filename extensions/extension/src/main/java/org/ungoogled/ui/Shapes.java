@@ -81,6 +81,7 @@ public final class Shapes {
     public static boolean proxyPatched() { return false; }
     public static boolean betterOfflinePatched() { return false; }
     public static boolean powerSavingPatched() { return false; }
+    public static boolean hideDirectoryPatched() { return false; }
     /** Location provider toggle's option: rewritten to return true when it defaults to Play services. */
     public static boolean playLocationByDefault() { return false; }
 
@@ -91,6 +92,7 @@ public final class Shapes {
     public static volatile boolean HIDE_ADS = hideAdsPatched();
     public static volatile boolean HIDE_EXPLORE = hideExplorePatched();
     public static volatile boolean HIDE_TABS = hideTabsPatched();
+    public static volatile boolean HIDE_DIRECTORY = hideDirectoryPatched();
     public static volatile boolean BETTER_OFFLINE = betterOfflinePatched();
 
     /** Set right before an account-sheet row opens something of ours, so the sheet's tap
@@ -194,6 +196,21 @@ public final class Shapes {
     public static void setHideTabsEnabled(Context c, boolean on) {
         prefs(c).edit().putBoolean(KEY_HIDE_TABS, on).commit();
         HIDE_TABS = on && hideTabsPatched();
+    }
+
+    // ---- Hide suggestions (the directory carousel) ---------------------------
+    // The row of businesses at an address, on its place sheet. Read every time a
+    // place sheet is bound, so a change needs no restart.
+
+    public static final String KEY_HIDE_DIRECTORY = "hide_directory";
+
+    public static boolean hideDirectoryEnabled(Context c) {
+        return hideDirectoryPatched() && prefs(c).getBoolean(KEY_HIDE_DIRECTORY, true);
+    }
+
+    public static void setHideDirectoryEnabled(Context c, boolean on) {
+        prefs(c).edit().putBoolean(KEY_HIDE_DIRECTORY, on).commit();
+        HIDE_DIRECTORY = on && hideDirectoryPatched();
     }
 
     // ---- Better offline maps -------------------------------------------------
@@ -491,6 +508,7 @@ public final class Shapes {
             HIDE_ADS = hideAdsEnabled(base);
             HIDE_EXPLORE = hideExploreEnabled(base);
             HIDE_TABS = hideTabsEnabled(base);
+            HIDE_DIRECTORY = hideDirectoryEnabled(base);
             BETTER_OFFLINE = betterOfflineEnabled(base);
             NAV_ZOOM_BUTTONS = navZoomEnabled(base);
             refreshPlayLocation(base);
