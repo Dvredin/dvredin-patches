@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/bearinmindcat/morphe-patches/compare/v1.1.0...v1.2.0) (2026-09-26)
+
+### ✨ New Features
+
+* add 120 hz refresh rate toggle ([cf4ee62](https://github.com/bearinmindcat/morphe-patches/commit/cf4ee6245cef8e99ee74f5f9f400f468a963b032))
+
 ## [1.1.0](https://github.com/bearinmindcat/morphe-patches/compare/v1.0.5...v1.1.0) (2026-09-26)
 
 ### ✨ New Features
