@@ -137,6 +137,17 @@ public final class CustomizationActivity extends Activity {
             });
         }
 
+        if (Shapes.highRefreshPatched()) {
+            Switch hz = new Switch(this);
+            hz.setChecked(Shapes.highRefreshEnabled(this));
+            body.addView(toggleRow("120 refresh rate", null, hz));
+            hz.setOnCheckedChangeListener((CompoundButton b, boolean on) -> {
+                Shapes.setHighRefreshEnabled(this, on);
+                // the window's rate is set when Maps starts
+                restartSoon(b);
+            });
+        }
+
         if (Shapes.hideAdsPatched()) {
             Switch ads = new Switch(this);
             ads.setChecked(Shapes.hideAdsEnabled(this));
