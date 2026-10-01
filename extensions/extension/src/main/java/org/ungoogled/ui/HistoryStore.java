@@ -261,6 +261,7 @@ final class HistoryStore {
     }
 
     static synchronized void merge(Context c, JSONArray a) throws Exception {
+        SavedStore.removeImportedPhotos(a);
         load(c);
         readArray(a);
         save(c);
