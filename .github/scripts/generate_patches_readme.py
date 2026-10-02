@@ -132,7 +132,8 @@ def patches_table(patches):
         else:
             opts_cell = ""
         desc = (p.get("description") or "").replace("\n", "<br>")
-        rows.append(f"| [{p['name']}](#{a}) | {desc} | {opts_cell} |")
+        # The catalog table is the description; it has no per-patch anchor sections.
+        rows.append(f"| {p['name']} | {desc} | {opts_cell} |")
     return "\n".join(rows)
 
 

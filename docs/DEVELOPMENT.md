@@ -76,14 +76,17 @@ behavior if executable entries are proven byte-identical to the accepted artifac
 It still requires actual Manager source/UI/coexistence checks. A failed GUI attempt
 is not a passed gate; inspect the resulting state before retrying.
 
-## Current bootstrap evidence
+## Current release evidence
 
-The Maps correction has already been compiled from all actual Kotlin sources,
-applied to the supported input, tested on Android ART, and compared with the
-accepted application output. The existing Manager source was tested and accepted
-on the maintainer's primary phone. No additional My Location patch was needed.
-This evidence establishes the correction, not a fresh Gradle/CI build of this new
-repository. A repository or release must report its own current build status.
+The repository's actual Gradle/CI build and Semantic Release publication now pass.
+Stable v1.0.0 includes 33 patches. The downloaded source was checked against the
+uploaded digest, applied to the exact supported input, and compared semantically
+with the accepted application. The new GitHub remote source passed actual Manager
+import/coexistence/cold launch. See [verification and limits](VERIFICATION.md).
+Earlier local GitHub registry access failures are not current CI failures; keep
+local package-read credentials separate from successful repository-write auth.
+No additional My Location patch was needed. Future changes must pass their own
+relevant gates; this release's evidence does not certify arbitrary new inputs.
 
 ## Reuse-first and diagnostics
 

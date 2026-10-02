@@ -64,8 +64,10 @@ Only report a stable release after these checks. Publish patch sources and `.mpp
 files, not vendor or patched application APKs and not Manager signing keys.
 Preserve signing continuity when the maintainer generates an application update.
 
-## Bootstrap readiness
+## Initial publication completed
 
-The pre-existing Maps correction is accepted, but a new repository build and its
-remote-source path have independent gates. While naming approval or package access
-is pending, keep the preparation local and do not claim a public release exists.
+Stable [v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0) passed
+its own build, dependency audit, artifact readback and actual Manager remote-source
+gates. See [verification and limits](VERIFICATION.md). Earlier preparation blockers
+were resolved; do not substitute those historical failures for current release state.
+This one-time approval does not authorize future stable dispatches automatically.
