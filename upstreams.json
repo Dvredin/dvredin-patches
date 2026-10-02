@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "project": {
+    "name": "Dvredin Patches",
+    "repository": "https://github.com/Dvredin/dvredin-patches"
+  },
+  "components": [
+    {
+      "id": "maps",
+      "repository": "https://github.com/bearinmindcat/morphe-patches",
+      "base_ref": "v1.3.0",
+      "base_commit": "35421159e2149d1ca972ffd0f16b79666569035c",
+      "license": "GPL-3.0 with retained NOTICE",
+      "license_files": [
+        "LICENSE",
+        "NOTICE"
+      ],
+      "update_strategy": "reviewed-git-merge",
+      "runtime_paths": [
+        "patches/src/main/kotlin",
+        "extensions/extension/src"
+      ],
+      "supported_inputs": [
+        {
+          "package": "com.google.android.apps.maps",
+          "version": "26.36.04.973607363"
+        }
+      ],
+      "expected_public_patches": 33,
+      "local_additions": [
+        {
+          "commit": "666135f8fccb6404bffba8a74d58c41d50309ebd",
+          "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/network/SystemCronetFallbackPatch.kt",
+          "sha256": "f13a756978bf5ceb083faa8dd8dc963e6ba5a5354809c1b2a54841fd126bf9ce",
+          "purpose": "Prefer system Cronet at the exact-gated Java fallback, preserving proxy/original fallback",
+          "upstream_pr": "https://github.com/bearinmindcat/morphe-patches/pull/16"
+        }
+      ]
+    }
+  ],
+  "infrastructure": {
+    "template": "https://github.com/MorpheApp/morphe-patches-template",
+    "gradle_plugin": "app.morphe.patches:1.3.4",
+    "patcher": "1.13.0"
+  }
+}

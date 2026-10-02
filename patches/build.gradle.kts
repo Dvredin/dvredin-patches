@@ -2,18 +2,17 @@ group = "org.ungoogled"
 
 patches {
     about {
-        name = "bearinmind patches"
-        description = "Ungoogled Maps: de-Googling, privacy and UI patches for Google Maps."
-        source = "git@github.com:bearinmindcat/morphe-patches.git"
-        author = "bearinmindcat"
-        contact = "https://github.com/bearinmindcat"
-        website = "https://github.com/bearinmindcat/morphe-patches"
+        name = "Dvredin Patches"
+        description = "Personal fork of bearinmind Maps patches with a system Cronet fallback."
+        source = "https://github.com/Dvredin/dvredin-patches"
+        author = "Dvredin; Maps patches by bearinmindcat"
+        contact = "https://github.com/Dvredin"
+        website = "https://github.com/Dvredin/dvredin-patches"
         license = "GPLv3"
     }
 }
 
-// Separate configuration so gson is available at runtime for the
-// generatePatchesList task but never bundled into the APK.
+// Runtime support for metadata generation only; never bundled into the app.
 val patchListGeneratorClasspath = configurations.create("patchListGeneratorClasspath")
 
 dependencies {
@@ -23,15 +22,11 @@ dependencies {
 
 tasks {
     register<JavaExec>("generatePatchesList") {
-        description = "Build patch with patch list"
-
+        description = "Generate the catalog from actual compiled patches"
         dependsOn(build)
-
         classpath = sourceSets["main"].runtimeClasspath + patchListGeneratorClasspath
         mainClass.set("util.PatchListGeneratorKt")
     }
-
-    // Used by gradle-semantic-release-plugin.
     publish {
         dependsOn("generatePatchesList")
     }

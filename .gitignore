@@ -128,3 +128,22 @@ node_modules/
 # Ignore IDEA files
 .idea/
 local.properties
+
+# Private inputs, credentials and generated delivery artifacts
+.env
+.env.*
+.secrets/
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+*.aab
+*.apks
+*.xapk
+*.idsig
+*.mpp
+inputs/
+artifacts/
+__pycache__/
+.pytest_cache/

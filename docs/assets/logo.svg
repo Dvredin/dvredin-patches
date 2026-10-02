@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Dvredin Patches logo">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#0d9488"/></linearGradient></defs>
+<rect width="256" height="256" rx="64" fill="#0f172a"/>
+<path d="M52 62h61c49 0 79 26 79 66s-30 66-79 66H52V62zm34 30v72h26c29 0 45-13 45-36s-16-36-45-36H86z" fill="url(#g)"/>
+<path d="m155 58 23 23-23 23-23-23z" fill="#5eead4"/>
+</svg>

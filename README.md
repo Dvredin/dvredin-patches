@@ -1,87 +1,79 @@
-<h1><img width="100" src="docs/icons/avatar.png" alt="bearinmind patches" align="absmiddle"> bearinmind patches</h1>
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Built for Morphe](https://img.shields.io/badge/Built%20for-Morphe-1E5AA8?style=flat-square)](https://morphe.software)
-
-I'll continue to support patches for apps I use & apps that I get requests for (either for specific features or premium unlocking). Below is a short description of how to install my patches on morphe!
-
-Install Morphe Manager if you have not yet: https://morphe.software
-
-[Click here to add bearinmind patches to Morphe Manager](https://morphe.software/add-source?github=bearinmindcat/morphe-patches)
-
-Select the app you want to patch inside Morphe Manager, follow all instructions shown.
-
-## Patches
-
-<!-- PATCHES_START -->
-> **[v1.3.0](https://github.com/bearinmindcat/morphe-patches/releases/tag/v1.3.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;32 patches total
-<details>
-<summary><img src="docs/icons/pin-google.png" width="20" height="20" align="top"> Google Maps&nbsp;&nbsp;-&gt;&nbsp;&nbsp;<img src="docs/icons/pin-ungoogled.png" width="20" height="20" align="top"> Ungoogled Maps&nbsp;&nbsp;•&nbsp;&nbsp;32 patches</summary>
-<br>
-
-<p>
-<img src="docs/screenshots/com.google.android.apps.maps/1-account-menu.png" width="19%" alt="Account menu" title="Account menu">
-<img src="docs/screenshots/com.google.android.apps.maps/2-customization.png" width="19%" alt="Customization" title="Customization">
-<img src="docs/screenshots/com.google.android.apps.maps/3-offline-maps.png" width="19%" alt="Offline maps" title="Offline maps">
-<img src="docs/screenshots/com.google.android.apps.maps/4-navigation.png" width="19%" alt="Navigation" title="Navigation">
-<img src="docs/screenshots/com.google.android.apps.maps/5-navigation-zoomed-out.png" width="19%" alt="Navigation zoomed out" title="Navigation zoomed out">
+<p align="center"><img src="docs/assets/logo.svg" width="112" alt="Dvredin Patches"></p>
+<h1 align="center">Dvredin Patches</h1>
+<p align="center">Personal patches · compatible with Morphe · upstream-friendly</p>
+<p align="center">
+  <a href="LICENSE"><img alt="License GPLv3" src="https://img.shields.io/badge/license-GPLv3-2563eb"></a>
+  <a href="https://morphe.software"><img alt="For use with Morphe" src="https://img.shields.io/badge/for-Morphe-14b8a6"></a>
 </p>
 
-**Supported version(s):** 26.36.04.973607363
+A personal collection of application patches maintained by [Dvredin](https://github.com/Dvredin).
+This is a **modified fork of third-party patches**, not an official Morphe, Google,
+or upstream-author release. Original developers retain their authorship.
 
-| Patch | Description | Options |
-|----------|----------------|-----------|
-| [120 refresh rate](#120-refresh-rate) | Lifts the 60 Hz limit Maps puts on itself, on the app and on the map, so it can run at your screen's full refresh rate (such as 120 Hz). Uses more battery, most of all while navigating. Off by default: switch it on on the Customization screen. |  |
-| [Better offline maps](#better-offline-maps) | Reworks the offline area picker: zooming out really selects more instead of being shrunk to Google's size cap, the box can be resized by dragging its edges and corners, a large area is split into several downloads whose true total size is shown, and areas already downloaded are drawn on the map. Can be turned off on the Customization screen. |  |
-| [Black theme](#black-theme) | AMOLED-black theme. Pins Maps' own dark mode and its separate navigation colour scheme, and remaps colour resources, drawable fills and draw-time paints so no surface is left grey. |  |
-| [Blue pin](#blue-pin) | Chromium-coloured flat map pin on every in-app product logo and the search bar's leading icon. |  |
-| [Bypass Play Services checks](#bypass-play-services-checks) | Makes Maps' bundled Play services signature and availability checks always pass, so it runs re-signed and with Play services disabled or absent. |  |
-| [Change app name](#change-app-name) | Sets the launcher and in-app app name. | • App name |
-| [Change package name](#change-package-name) | Installs alongside stock Google Maps under its own package name. On by default, because stock Maps comes built into most phones and cannot be replaced by a patched copy. | • Package name |
-| [Customization screen](#customization-screen) | Adds a Customization row under Settings on the account sheet, with switches for the patches here that can be turned back off inside the app. Also applies Trim account menu, whose freed row builder it takes over. |  |
-| [Hide ads](#hide-ads) | Hides promoted map pins and "Sponsored" search result rows. |  |
-| [Hide explore feed](#hide-explore-feed) | Hides the home tab's Explore feed sheet ("Local vibe"). Can be switched back on on the Customization screen. |  |
-| [Hide login promo](#hide-login-promo) | Hides the full-screen "Make it your map" page shown on first launch. |  |
-| [Hide navigation tabs](#hide-navigation-tabs) | Hides the Explore / Contribute / You strip at the bottom of the home screen. Can be switched back on on the Customization screen. |  |
-| [Hide section title](#hide-section-title) | Removes the "More from this app" label from the account sheet. |  |
-| [Hide sign-in button](#hide-sign-in-button) | Removes the "Sign in" pill from the account sheet. |  |
-| [Hide suggestions](#hide-suggestions) | Hides the row of businesses under an address on its place sheet: a preview of the address's Directory (the restaurants, shops and offices at that address). The Directory button still lists them. Can be switched off on the Customization screen. |  |
-| [Keep account sheet open](#keep-account-sheet-open) | Returning from Settings or Customization, or tapping "Your profile", leaves the account sheet open instead of dropping back to the map. |  |
-| [Legacy icon](#legacy-icon) | Uses the flat multicolour pin Maps had before the 2025 gradient icon as the launcher icon. |  |
-| [Location provider toggle](#location-provider-toggle) | Adds a Location source choice to the Customization screen: Android's own location providers, or Google Play services' fused provider. With Android, Play services is never asked for a location. Play services is never used while it is missing or disabled, so location keeps working on phones without it. | • Default to Play services location |
-| [Network location fallback](#network-location-fallback) | Keeps the network (Wi-Fi/cell) location provider registered when no fused location provider answers, instead of GPS-only, so a fix does not go stale indoors. |  |
-| [Offline saved places](#offline-saved-places) | Save places without a Google account, kept only on the phone: Save opens Maps' own "Place saved" sheet (Want to go, Travel plans, Starred places, Favorites, your own lists, a note), and a "Local saved" row on the account sheet rebuilds Maps' You tab -- your recent places (looked at, routed to, called, shared or saved), your lists and labels (Home, Work, your own) -- with export and import (backup file, KML, Google Takeout's Saved Places.json). |  |
-| [Offline timeline](#offline-timeline) | Adds a Timeline to the Local saved screen: a record of where the phone has been, grouped into days and visits, kept only on the phone, with GPX export. Recording is off until switched on there; it shows a notification while it runs. |  |
-| [Power saving mode](#power-saving-mode) | Brings the Pixel-only power saving mode to every phone: while driving with navigation, press the power button and Maps shows only key information such as the next turn on a black screen. Turn it on or off in Settings > Navigation > Power saving mode. Pixels that have it built in keep Google's own version unless Customization > Power saving mode is turned on. |  |
-| [Proxy](#proxy) | Adds a Proxy screen to Customization that sends Maps' own traffic, map data included, through an HTTP proxy -- for example Orbot's (127.0.0.1:8118) to use Tor. Map data never falls back to a direct connection: if the proxy stops, Maps stops loading. Needs a recent Play services network engine (Cronet); Maps warns when it cannot take the proxy. |  |
-| [Rectangle shapes](#rectangle-shapes) | Squares off rounded corners across the UI, including the two round navigation buttons. |  |
-| [Remove permissions](#remove-permissions) | Removes permissions that only serve Google-account features or Google's data collection: background location, physical activity, contacts, microphone (voice search stops working), camera (Lens and Live View stop working), car speed, advertising ID, push messages and Google services settings. |  |
-| [Remove sign-in promo](#remove-sign-in-promo) | Removes the "Tired of typing?" sign-in card from the search screen. |  |
-| [Remove telemetry](#remove-telemetry) | Points the Firebase Installations and Play services compliance check-ins at an unresolvable host, stops every ad impression and click ping from being sent, and deregisters Google's logging, performance-monitoring, survey and Location History libraries and the on-device federated-learning services. |  |
-| [Restore map data](#restore-map-data) | Lets a re-signed Maps load tiles, search and routing, by sending Google's own package and certificate in the identity headers the Maps backend checks, and by degrading instead of crashing when Play services rejects the re-signed app -- including skipping a view property that fails for that reason instead of crashing the screen. |  |
-| [Sign-in toast](#sign-in-toast) | The "Sign in" pill shows a "Can't sign in" toast instead of failing silently. |  |
-| [Trim account menu](#trim-account-menu) | Removes Your Timeline, Location sharing, Your data in Maps and Help & feedback from the account sheet. |  |
-| [Your profile toast](#your-profile-toast) | Tapping "Your profile" shows a "Can't sign in" toast instead of opening nothing. |  |
-| [Zoom controls in navigation](#zoom-controls-in-navigation) | Adds +, − and reset tiles during turn-by-turn that change the navigation zoom while the camera keeps following the car. |  |
+## Applications
 
-</details>
+| Application | Original version | Current scope |
+|---|---|---|
+| Google Maps → Ungoogled Maps | `26.36.04.973607363` | bearinmind patches v1.3.0 plus the system-Cronet correction: 33 patches |
 
+Yandex applications and other patch families are not included yet.
+An application version is supported only after it has been identified and tested;
+there is no promise that a newer APK will work.
+
+<!-- PATCHES_START -->
+The detailed patch catalog is generated from the actual build during release.
 <!-- PATCHES_END -->
 
-## Building
+## What differs from upstream
 
-To build bearinmind patches, follow the [Morphe documentation](https://github.com/MorpheApp/morphe-documentation).
+The additional **Use system Cronet fallback** patch prefers Android's system
+HttpEngine when Maps requests the Java Cronet fallback. A working Play services
+engine is left alone. The original fallback remains available when the system
+provider is unavailable or an application proxy is configured.
 
-## Want more patches & features?
+The implementation is also submitted as [upstream PR #16](https://github.com/bearinmindcat/morphe-patches/pull/16).
+Earlier unrelated import, photo, and proxy fixes are not silently included.
+Our source branding does not change the installed application's name, package,
+permissions, or signing identity. Use the same Manager signing key for updates.
 
-Open up an issue request and I'll do my best to fulfil your feature ideas for any specific apps you ask for, I enjoy working on random things so just ask!
+## Use with Morphe
 
-## Misc info for myself
-Always use Semantic commit (https://kapeli.com/cheat_sheets/Semantic_Commits.docset/Contents/Resources/Documents/index) messages. 
-To keep it simple use only 3 commit message types:
-feat: / fix: / chore:
-Commits of fix: and feat: will automatically generate new pre-releases and chore: will not create a new release.
+After the first release is published, add this repository as a remote source:
 
-feat:/fix: make pre-releases on dev, and stable releases on main.
+[**Add Dvredin Patches to Morphe**](https://morphe.software/add-source?github=Dvredin/dvredin-patches)
 
+1. Install an official compatible [Morphe Manager](https://github.com/MorpheApp/morphe-manager/releases).
+2. Add the source and select the original application of the exact supported version.
+3. Select patches from this source only; do not combine overlapping Maps bundles.
+4. Patch and install using Manager. Do not uninstall or clear a working application
+   to bypass a signing error. Export your Manager signing key through its normal backup UI.
 
+This repository distributes patch code, not original or patched application APKs.
+Maps still accesses Google's servers for its core map, search, and routing functions.
+Google account-dependent features are not supported by this profile. This is not a
+claim of zero telemetry or offline availability of every feature.
+
+## Build and contribute
+
+Use the maintained Morphe Gradle plugin and Semantic Release integration, rather
+than a custom compiler or release service. See:
+
+- [Contribution entry point](CONTRIBUTING.md)
+- [Development and verification](docs/DEVELOPMENT.md)
+- [Pinned upstream updates](docs/UPSTREAM_UPDATES.md)
+- [Release and publication](docs/PUBLISHING.md)
+- [Provenance and credits](docs/PROVENANCE.md)
+
+The current source is inherited from the original public Git history. Exact
+component revisions and the local addition are recorded in [upstreams.json](upstreams.json).
+
+## Credits and license
+
+Thank you to **[bearinmindcat](https://github.com/bearinmindcat)** for Ungoogled Maps
+and the original [bearinmind patches](https://github.com/bearinmindcat/morphe-patches),
+and to **[MorpheApp](https://github.com/MorpheApp)** and the original ReVanced
+contributors for the patching infrastructure and template.
+
+Distributed under [GNU GPL v3](LICENSE), with the additional naming terms retained
+in [NOTICE](NOTICE). The project's primary name is **Dvredin Patches**; Morphe is
+mentioned only to describe compatibility. See [provenance](docs/PROVENANCE.md).
