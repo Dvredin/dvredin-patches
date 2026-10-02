@@ -16,13 +16,22 @@ verified provenance. Do not merge an unrelated upstream repository into the root
 ## Maintained build path
 
 Requirements: JDK 21, Android SDK platform 36, the project Gradle wrapper, and
-Node.js LTS/npm for release tooling. Exact dependencies are pinned by the Gradle
-catalog/wrapper and `package-lock.json`. Use `npm ci`, not ad-hoc dependency upgrades.
-Semantic Release includes an unused default npm-publishing plugin. This collection
-does not enable it or publish to npm, but its bundled dependencies still belong
-to the release-tool dependency audit. Keep that audit honest: even a latest npm
-parent can retain vulnerable bundled libraries. Do not add ineffective overrides,
-ignore failed audit exits, or claim an unreviewed exception as a passing check.
+Node.js 24 and pnpm12.8.1 for release tooling. Exact dependencies are pinned by
+`packageManager`, `pnpm-lock.yaml`, and the Gradle catalog/wrapper. Use a frozen
+lockfile, not ad-hoc dependency upgrades.
+
+This collection supplies an explicit Semantic Release plugin list and never
+publishes npm packages. `pnpm-workspace.yaml` uses pnpm's maintained removal
+feature to exclude the unused default `@semantic-release/npm` dependency. This
+removes its vulnerable bundled npm CLI instead of allowing advisory exceptions
+or replacing libraries with stubs. The repository guard rejects an npm publishing
+plugin or inherited configuration while this removal is active. Audit the actual
+installed graph normally; do not ignore failed audit exits.
+
+The official Semantic Release CLI uses the original Morphe `.releaserc`. The
+extra npm-installing action wrapper is not used because it creates an independent,
+unlocked copy of the removed dependencies. Release outputs use the already
+configured official exec plugin, not a new release engine.
 
 The Morphe Gradle plugin and patcher artifacts use GitHub Packages. Local access
 requires approved read access (`read:packages` for a classic PAT); use protected
@@ -34,7 +43,8 @@ alone does not prove package-registry access. CI declares `packages: read`.
 ```bash
 ./gradlew :patches:buildAndroid --no-daemon
 ./gradlew generatePatchesList --no-daemon
-npm ci
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm audit --audit-level=high
 python3 scripts/verify_repository.py
 ```
 

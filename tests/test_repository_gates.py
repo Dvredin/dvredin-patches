@@ -53,6 +53,17 @@ class RepositoryGates(unittest.TestCase):
         for value in ["upstreams.json", "LICENSE", "docs/assets/logo.svg", "patches/src/Patch.kt"]:
             self.assertFalse(verify.forbidden_path(value), value)
 
+    def test_npm_publisher_rejected(self):
+        config = {"plugins": ["@semantic-release/github", "@semantic-release/exec", "gradle-semantic-release-plugin"]}
+        self.assertEqual(verify.validate_release_config(config), [])
+        config["plugins"].append("@semantic-release/npm")
+        self.assertTrue(verify.validate_release_config(config))
+
+    def test_inherited_publisher_config_rejected(self):
+        config = {"extends": "unknown-config", "plugins": ["@semantic-release/github", "@semantic-release/exec", "gradle-semantic-release-plugin"]}
+        self.assertTrue(verify.validate_release_config(config))
+        self.assertTrue(verify.validate_release_config({}))
+
     def test_local_link_detection(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

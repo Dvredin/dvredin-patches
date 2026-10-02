@@ -1,0 +1,5 @@
+# The project supplies an explicit Semantic Release plugin list in .releaserc.
+# It publishes Morphe bundles, never npm packages. Remove the unused default
+# npm-publishing plugin using pnpm's maintained dependency-removal feature.
+overrides:
+  "semantic-release>@semantic-release/npm": "-"

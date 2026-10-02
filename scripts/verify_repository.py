@@ -79,8 +79,23 @@ def local_links(text, file, root):
     return errors
 
 
+def validate_release_config(config):
+    errors = []
+    plugins = config.get("plugins")
+    if not isinstance(plugins, list) or not plugins:
+        return ["Explicit maintained release plugin list required"]
+    names = [p[0] if isinstance(p, list) else p for p in plugins]
+    if "@semantic-release/npm" in names or config.get("extends"):
+        errors.append("Unused npm publisher removal requires an explicit non-inherited plugin list")
+    for name in ["@semantic-release/github", "@semantic-release/exec", "gradle-semantic-release-plugin"]:
+        if name not in names:
+            errors.append(f"Required maintained release integration missing: {name}")
+    return errors
+
+
 def main():
-    errors = validate_lock(json.loads((ROOT / "upstreams.json").read_text()), ROOT)
+    errors = validate_release_config(json.loads((ROOT / ".releaserc").read_text()))
+    errors += validate_lock(json.loads((ROOT / "upstreams.json").read_text()), ROOT)
     result = subprocess.run(["git", "ls-files", "-co", "--exclude-standard", "-z"], cwd=ROOT, check=True, capture_output=True)
     names = sorted(set(result.stdout.decode().split("\0")) - {""})
     private_markers = [r"/home/[^/]+/\.hermes(?:/|$)", r"gh[pousr]_[A-Za-z0-9]{30,}", r"github_pat_[A-Za-z0-9_]{40,}"]
