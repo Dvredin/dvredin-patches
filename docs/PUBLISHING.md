@@ -7,8 +7,10 @@
 an explicit workflow dispatch, not a side effect of every push or documentation edit.
 The initial repository publication does not grant unlimited future stable releases.
 
-Use the maintained Morphe template's `release.yml` and `.releaserc`, adapted for
-this collection. They produce the `.mpp`, catalog, changelog and bundle metadata.
+Use the maintained Morphe template's `.releaserc` and the official Semantic Release
+CLI, with the project's explicitly dispatched `release.yml`. The pinned pnpm
+dependency graph removes only the unused npm publisher; it does not bypass the
+normal dependency audit or replace the release engine. They produce the `.mpp`, catalog, changelog and bundle metadata.
 Do not invent another release service or hand-edit generated catalog/metadata to
 make a failed build look publishable. Semantic Release tags/releases are append-only:
 fix a bad release with a new version, never force-push published release history.

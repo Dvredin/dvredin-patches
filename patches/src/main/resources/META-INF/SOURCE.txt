@@ -1,0 +1,8 @@
+Dvredin Patches: a modified derivative of bearinmind patches for use with Morphe.
+Original Maps implementation by bearinmindcat; local adaptations by Dvredin.
+Complete corresponding sources and build instructions:
+https://github.com/Dvredin/dvredin-patches
+Use the Git tag v<Version> matching this bundle's manifest Version.
+Reviewed base revisions and local changes are recorded in upstreams.json.
+GNU GPLv3 and the inherited naming NOTICE are included in this archive.
+No original or patched application APK is included.
