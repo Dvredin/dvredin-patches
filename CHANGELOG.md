@@ -1,3 +1,24 @@
+## 1.0.0 (2026-10-02)
+
+### 🐛 Bug Fixes
+
+* android api as default location source ([154342a](https://github.com/Dvredin/dvredin-patches/commit/154342a46b4503ae8cbbdd1988813e00557f462d))
+* fixed crash when stock maps was not installed, maps api now targets changed package name ([c769d38](https://github.com/Dvredin/dvredin-patches/commit/c769d3812fe9b3ee48da93f304d1c0aa9c3cb420))
+* fixed misc patching error with shapes ([14cf6cf](https://github.com/Dvredin/dvredin-patches/commit/14cf6cf57fde7b23835b9f7002c13bbf2bbd95eb))
+* install alongside stock google maps by default ([c5ff618](https://github.com/Dvredin/dvredin-patches/commit/c5ff6183a80a35b391201d1435f096b638d9c8df))
+* prefer system Cronet when Java fallback is requested ([666135f](https://github.com/Dvredin/dvredin-patches/commit/666135f8fccb6404bffba8a74d58c41d50309ebd))
+* remove unused npm publisher through maintained pnpm override ([30df5eb](https://github.com/Dvredin/dvredin-patches/commit/30df5eb0618f66ab86df286789cccb1e8c125576))
+* retain our notices outside dependency metadata filter ([bc49450](https://github.com/Dvredin/dvredin-patches/commit/bc494503c769b603e14ad1483c476b84b71f67b2))
+* update package name ([ce3a6dd](https://github.com/Dvredin/dvredin-patches/commit/ce3a6dd1ff263625affec38fabe6140b24dd248b))
+
+### ✨ New Features
+
+* add 120 hz refresh rate toggle ([cf4ee62](https://github.com/Dvredin/dvredin-patches/commit/cf4ee6245cef8e99ee74f5f9f400f468a963b032))
+* add locally saved bookmarks & pins (also added timeline and recent searches) ([d6d4604](https://github.com/Dvredin/dvredin-patches/commit/d6d460499327aa32b7de29c750d42313dec166ed))
+* added power saving nav toggle for all devices (may work on implementing powersaving throughout whole device) ([adc3853](https://github.com/Dvredin/dvredin-patches/commit/adc385318951da08a3a9ba17ba7538daa22012b6))
+* prepare Dvredin personal collection and maintenance contract ([2efe99d](https://github.com/Dvredin/dvredin-patches/commit/2efe99dc95d0a0d176fed79d62e82bcf38e846c6))
+* release v1.0.0 ungoogled maps patches ([9d52bb2](https://github.com/Dvredin/dvredin-patches/commit/9d52bb25fc791e04680a0096ce5fa44fe1faa920))
+
 ## [1.3.0](https://github.com/bearinmindcat/morphe-patches/compare/v1.2.0...v1.3.0) (2026-09-30)
 
 ### ✨ New Features
