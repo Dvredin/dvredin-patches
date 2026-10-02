@@ -30,6 +30,8 @@ jobs:
       - run: npm ci
       - run: npm audit --audit-level=high
       - name: Compile actual patch and extension sources
+        # Report registry/build readiness even if the independent npm audit fails.
+        if: ${{ !cancelled() }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew :patches:buildAndroid --no-daemon
