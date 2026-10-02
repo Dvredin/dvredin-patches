@@ -29,7 +29,9 @@ contributors retain their copyright and license/NOTICE terms. Links:
 
 ## Naming and redistribution
 
-Preserve [LICENSE](../LICENSE) and [NOTICE](../NOTICE). The inherited NOTICE forbids
+Preserve [LICENSE](../LICENSE) and [NOTICE](../NOTICE). The bundle includes them
+as root resources, because the maintained Gradle plugin intentionally excludes
+`META-INF/LICENSE*` and `META-INF/NOTICE*` when filtering dependency metadata. The inherited NOTICE forbids
 Morphe as a derivative project's primary name or part of the project name; it is
 used here only as a secondary compatibility reference. The primary name is
 **Dvredin Patches** with distinct original branding. Application-level names and

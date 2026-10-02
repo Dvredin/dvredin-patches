@@ -124,7 +124,7 @@ def main():
     if "inputs.owner_verified" not in release:
         errors.append("Stable publication acceptance guard missing")
     for notice in ["LICENSE", "NOTICE"]:
-        if (ROOT / notice).read_bytes() != (ROOT / "patches/src/main/resources/META-INF" / notice).read_bytes():
+        if (ROOT / notice).read_bytes() != (ROOT / "patches/src/main/resources" / notice).read_bytes():
             errors.append(f"Bundled {notice} differs from retained original")
     readme = (ROOT / "README.md").read_text()
     for marker in ["<!-- PATCHES_START -->", "<!-- PATCHES_END -->"]:
