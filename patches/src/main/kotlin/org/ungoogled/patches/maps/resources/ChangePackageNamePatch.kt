@@ -48,27 +48,29 @@ private fun Document.elements(tag: String): List<Element> =
  * internal account type, action names and lists of other apps -- and the
  * authorities and aliases the code does use are built from getPackageName().
  *
- * On by default: stock Maps comes built into most phones, signed by Google, so a
- * patched copy under the stock package name cannot install at all -- Morphe
- * Manager's Simple mode would only offer to uninstall stock Maps, which merely
- * rolls it back to the built-in version. The default name mirrors stock Maps'
- * com.google.android.apps.maps and is the same one the shell tooling uses; the
- * two builds are signed with different keys, so only one of them can be
- * installed at a time.
+ * This source's default installation uses its own stable package while remaining
+ * the original Maps target's main tracked result in Manager. The upstream package
+ * transformation is retained; only the profile/default and option contract differ.
+ *
+ * Morphe Manager 1.33 classifies an explicitly selected patch with an option key
+ * literally "packageName" as a user-requested clone. Our source-owned identity
+ * uses "mapsPackageName" instead, just as other purpose-renamed builds remain on
+ * their original app card. This changes tracking, not Android package isolation.
+ * Historical tracked clones are deliberately left intact, not hidden or deleted.
  */
 @Suppress("unused")
 val changePackageNamePatch = resourcePatch(
-    name = "Change package name",
-    description = "Installs alongside stock Google Maps under its own package name. On by default, because stock Maps comes built into most phones and cannot be replaced by a patched copy.",
+    name = "Maps identity",
+    description = "Installs Maps under a separate personal package while tracking it on the original Maps card in Morphe Manager 1.33. Existing tracked clones are retained.",
     default = true,
 ) {
     compatibleWith(COMPATIBILITY_MAPS)
 
     val packageName = stringOption(
-        key = "packageName",
-        default = "org.ungoogled.android.apps.maps",
-        title = "Package name",
-        description = "The package name to install under. Must be a valid Android package name.",
+        key = "mapsPackageName",
+        default = "io.github.dvredin.maps",
+        title = "Maps package",
+        description = "The personal Maps installation package. Changing it creates a separate installation with separate data; older installations are not migrated automatically.",
         required = true,
     ) {
         it != null && it.matches(Regex("^[a-zA-Z][a-zA-Z0-9_]*(\\.[a-zA-Z][a-zA-Z0-9_]*)+$"))

@@ -27,7 +27,7 @@ val changeAppNamePatch = resourcePatch(
 
     val appName = stringOption(
         key = "appName",
-        default = "Ungoogled Maps",
+        default = "Maps",
         title = "App name",
         description = "The name shown under the launcher icon and in the app switcher.",
         required = true,

@@ -88,6 +88,11 @@ local package-read credentials separate from successful repository-write auth.
 No additional My Location patch was needed. Future changes must pass their own
 relevant gates; this release's evidence does not certify arbitrary new inputs.
 
+The unreleased [Maps identity candidate](MAPS_IDENTITY.md) has its own resource,
+Manager tracking and in-place rebuild evidence. Its local patch compilation
+reused the unchanged accepted runtime extension; it is not a fresh full Gradle
+release build or primary-device acceptance.
+
 ## Reuse-first and diagnostics
 
 Use Morphe's source/import/build/sign/install UI; do not create another patcher.
