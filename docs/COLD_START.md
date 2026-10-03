@@ -2,12 +2,13 @@
 
 ## Report and scope
 
-On 2026-10-03 the maintainer reported a prolonged gray screen when reopening Maps
-and clarified that it occurs **after the application is unloaded/evicted**.
-The exact eviction operation is not yet identified: removing a recent-app task,
-Android killing a cached process, force-stop, and clearing disk cache/data are
-not interchangeable. Do not infer a storage-clear operation from this wording.
-Process recreation is a working hypothesis, not a measured PID transition.
+On 2026-10-03 the maintainer reported a prolonged gray screen when reopening Maps,
+initially described as occurring after unloading it. The subsequent clarification
+identifies the actual action: **swipe Maps away from the recent-apps overview,
+then reopen it**. This is task removal, not a request to clear disk cache/data or
+force-stop. Task removal does not itself prove process death. Android killing a
+cached process remains a distinct event; process recreation is still a working
+hypothesis, not a measured PID transition.
 
 This report is separate from the [native recenter correction](NATIVE_RECENTER.md).
 The maintainer reports that the recenter error no longer occurs. That fix does
@@ -26,7 +27,8 @@ No measured cold-start latency or critical-path trace is available for this repo
 
 ## Required diagnosis before a runtime change
 
-1. Identify the actual unloading action and exact installed source/options.
+1. Use the confirmed swipe-away/reopen action and verify the exact installed
+   source/options.
 2. Compare a warm return with a relaunch after that action. Record PID transitions
    without clearing application data or disk caches.
 3. Time the first application frame separately from the first usable map. Inspect
