@@ -40,6 +40,11 @@ was exercised in private QA. After delivery, the maintainer confirmed that the
 heading works; the reported frozen-sector symptom is resolved by user report.
 This feedback does not certify every regression step, a complete runtime diagnosis
 or a stable release. The stable GitHub source has not been replaced.
+The newer local `1.1.0-dev.local.4` [combined safety candidate](docs/PR_SAFETY_CANDIDATE.md)
+retains those changes and the existing system-Cronet correction, adding the
+maintainer's safe-import, imported-photo and fail-closed-proxy contributions
+(#12, #13 and #14). Its runtime extension is freshly compiled; maintainer testing
+of this combined candidate is required before the separately approved publication.
 
 <!-- PATCHES_START -->
 > **[v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total
@@ -105,7 +110,9 @@ engine is left alone. The original fallback remains available when the system
 provider is unavailable or an application proxy is configured.
 
 The implementation is also submitted as [upstream PR #16](https://github.com/bearinmindcat/morphe-patches/pull/16).
-Earlier unrelated import, photo, and proxy fixes are not silently included.
+The published v1.0.0 does not include the earlier import, photo and proxy fixes.
+Their explicit adoption in the newer local test candidate is documented in
+[Combined Maps safety candidate](docs/PR_SAFETY_CANDIDATE.md).
 In the published v1.0.0, source branding alone does not change the installed
 application's name, package, permissions, or signing identity. The unreleased
 [Maps identity profile](docs/MAPS_IDENTITY.md) is a separate, explicit application

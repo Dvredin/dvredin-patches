@@ -104,6 +104,14 @@ Local plugin resolution is still blocked, so this is not a new official CI relea
 The documentation-only acceptance update changes no patch code or source bundle
 and does not authorize public push, merge or stable publication.
 
+The later [combined safety candidate](PR_SAFETY_CANDIDATE.md) explicitly adopts
+PR #12/#13/#14 while retaining #16 and accepted identity/recenter/heading behavior.
+Unlike the heading-only route, it freshly compiles all production Java extension
+sources. Its combined 20 extension behavior tests and 23 source/repository tests
+passed, and actual Manager import plus Pixel 8 regressions are recorded separately.
+Both maintained CI workflows run `./gradlew -p tests test --no-daemon`; the next
+release still needs the official build and owner acceptance of this exact candidate.
+
 ## Reuse-first and diagnostics
 
 Use Morphe's source/import/build/sign/install UI; do not create another patcher.

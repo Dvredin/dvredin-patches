@@ -52,6 +52,53 @@
           "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/location/NativeHeadingPatch.kt",
           "sha256": "6fc4bc040bb2d506d57869697cf66db78a6c7d9a48aedc1d2647d139454c356c",
           "purpose": "Reuse the existing Android compass when Android location mode is selected; preserve the full stock Play orientation selector"
+        },
+        {
+          "commit": "95fbc7394f6ab503e756f9165971acb6204249b3",
+          "path": "extensions/extension/src/main/java/org/ungoogled/ui/SavedStore.java",
+          "sha256": "1031931b2fd1ce18dc704532f5d50ba4a5e7c9f27461c5dc13a78cd465df0ad4",
+          "purpose": "Safe place imports, preserve unreadable stores, discard untrusted imported photos",
+          "upstream_prs": [
+            "https://github.com/bearinmindcat/morphe-patches/pull/12",
+            "https://github.com/bearinmindcat/morphe-patches/pull/13"
+          ]
+        },
+        {
+          "commit": "95fbc7394f6ab503e756f9165971acb6204249b3",
+          "path": "extensions/extension/src/main/java/org/ungoogled/ui/HistoryStore.java",
+          "sha256": "ac898a7744258278e0f24b849af8f653c48bc195053875e3ce9b86def7064fa8",
+          "purpose": "Validate imported history, preserve unreadable files, discard untrusted imported photo URLs",
+          "upstream_prs": [
+            "https://github.com/bearinmindcat/morphe-patches/pull/12",
+            "https://github.com/bearinmindcat/morphe-patches/pull/13"
+          ]
+        },
+        {
+          "commit": "8fb745a89530885abdc9c06171f620916bfa581b",
+          "path": "extensions/extension/src/main/java/org/ungoogled/ui/CronetProxy.java",
+          "sha256": "2db05059e6234ab039e2fcba940990a4b13f213c978b44394dad3274835c1774",
+          "purpose": "Fail closed when requested Cronet proxy cannot be applied",
+          "upstream_prs": [
+            "https://github.com/bearinmindcat/morphe-patches/pull/14"
+          ]
+        },
+        {
+          "commit": "8fb745a89530885abdc9c06171f620916bfa581b",
+          "path": "extensions/extension/src/main/java/org/ungoogled/ui/ProxyActivity.java",
+          "sha256": "2dbd90e27fadb11bcf6eaa334c6d30e61dcf01461223f3d88d4eac21e3c1a96a",
+          "purpose": "Reject invalid proxy enable/configuration without misleading UI state",
+          "upstream_prs": [
+            "https://github.com/bearinmindcat/morphe-patches/pull/14"
+          ]
+        },
+        {
+          "commit": "8fb745a89530885abdc9c06171f620916bfa581b",
+          "path": "extensions/extension/src/main/java/org/ungoogled/ui/Shapes.java",
+          "sha256": "35321de5fc9833c307698731f21cfd3759314bc8b5fdf1b7ebd4c915b8ea3362",
+          "purpose": "Preserve enabled proxy intent and reject invalid endpoint settings",
+          "upstream_prs": [
+            "https://github.com/bearinmindcat/morphe-patches/pull/14"
+          ]
         }
       ]
     }
