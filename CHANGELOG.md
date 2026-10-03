@@ -1,3 +1,17 @@
+## [1.1.0](https://github.com/Dvredin/dvredin-patches/compare/v1.0.0...v1.1.0) (2026-10-03)
+
+### 🐛 Bug Fixes
+
+* complete My Location through native settings for Android source ([0c086a6](https://github.com/Dvredin/dvredin-patches/commit/0c086a6d01c2124a27f77bcda0454ee1bce0ba25))
+* discard untrusted photo URLs from imported places ([95fbc73](https://github.com/Dvredin/dvredin-patches/commit/95fbc7394f6ab503e756f9165971acb6204249b3))
+* fail closed when an enabled Cronet proxy cannot be applied ([8fb745a](https://github.com/Dvredin/dvredin-patches/commit/8fb745a89530885abdc9c06171f620916bfa581b))
+* **Maps:** use native heading for Android location source ([e4e8582](https://github.com/Dvredin/dvredin-patches/commit/e4e8582c3bc6ba47ac85ed88fcf560e067ae51e0))
+* reject invalid place imports and preserve unreadable stores ([d7e4678](https://github.com/Dvredin/dvredin-patches/commit/d7e46786b1b4d0d1d6bc567c2e327736a8e9ca43))
+
+### ✨ New Features
+
+* personalize Maps identity on its original Manager card ([0a1cd9b](https://github.com/Dvredin/dvredin-patches/commit/0a1cd9b97d7a5e2cc6ecd530a847928a3247627f))
+
 ## 1.0.0 (2026-10-02)
 
 ### 🐛 Bug Fixes

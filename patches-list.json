@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "patches": [
     {
       "name": "120 refresh rate",
@@ -180,44 +180,7 @@
           "description": "The name shown under the launcher icon and in the app switcher.",
           "required": true,
           "type": "kotlin.String",
-          "default": "Ungoogled Maps",
-          "values": null
-        }
-      ]
-    },
-    {
-      "name": "Change package name",
-      "description": "Installs alongside stock Google Maps under its own package name. On by default, because stock Maps comes built into most phones and cannot be replaced by a patched copy.",
-      "default": true,
-      "category": null,
-      "dependencies": [],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.maps",
-          "name": "Google Maps",
-          "description": null,
-          "apkFileType": "APKM",
-          "appIconColor": "#FFFFFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "26.36.04.973607363",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": [
-        {
-          "key": "packageName",
-          "title": "Package name",
-          "description": "The package name to install under. Must be a valid Android package name.",
-          "required": true,
-          "type": "kotlin.String",
-          "default": "org.ungoogled.android.apps.maps",
+          "default": "Maps",
           "values": null
         }
       ]
@@ -520,6 +483,8 @@
       "dependencies": [
         "BytecodePatch",
         "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch",
         "BytecodePatch"
       ],
       "compatiblePackages": [
@@ -549,6 +514,43 @@
           "required": false,
           "type": "kotlin.Boolean",
           "default": false,
+          "values": null
+        }
+      ]
+    },
+    {
+      "name": "Maps identity",
+      "description": "Installs Maps under a separate personal package while tracking it on the original Maps card in Morphe Manager 1.33. Existing tracked clones are retained.",
+      "default": true,
+      "category": null,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.maps",
+          "name": "Google Maps",
+          "description": null,
+          "apkFileType": "APKM",
+          "appIconColor": "#FFFFFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "26.36.04.973607363",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "mapsPackageName",
+          "title": "Maps package",
+          "description": "The personal Maps installation package. Changing it creates a separate installation with separate data; older installations are not migrated automatically.",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "io.github.dvredin.maps",
           "values": null
         }
       ]

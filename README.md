@@ -40,7 +40,7 @@ that it already works in the current application. The separate
 [startup investigation](docs/COLD_START.md) stays deferred; no startup fix is claimed.
 
 <!-- PATCHES_START -->
-> **[v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total
+> **[v1.1.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.1.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total
 <details>
 <summary><img src="docs/icons/pin-google.png" width="20" height="20" align="top"> Google Maps&nbsp;&nbsp;-&gt;&nbsp;&nbsp;<img src="docs/icons/pin-ungoogled.png" width="20" height="20" align="top"> Ungoogled Maps&nbsp;&nbsp;•&nbsp;&nbsp;33 patches</summary>
 <br>
@@ -63,7 +63,6 @@ that it already works in the current application. The separate
 | Blue pin | Chromium-coloured flat map pin on every in-app product logo and the search bar's leading icon. |  |
 | Bypass Play Services checks | Makes Maps' bundled Play services signature and availability checks always pass, so it runs re-signed and with Play services disabled or absent. |  |
 | Change app name | Sets the launcher and in-app app name. | • App name |
-| Change package name | Installs alongside stock Google Maps under its own package name. On by default, because stock Maps comes built into most phones and cannot be replaced by a patched copy. | • Package name |
 | Customization screen | Adds a Customization row under Settings on the account sheet, with switches for the patches here that can be turned back off inside the app. Also applies Trim account menu, whose freed row builder it takes over. |  |
 | Hide ads | Hides promoted map pins and "Sponsored" search result rows. |  |
 | Hide explore feed | Hides the home tab's Explore feed sheet ("Local vibe"). Can be switched back on on the Customization screen. |  |
@@ -75,6 +74,7 @@ that it already works in the current application. The separate
 | Keep account sheet open | Returning from Settings or Customization, or tapping "Your profile", leaves the account sheet open instead of dropping back to the map. |  |
 | Legacy icon | Uses the flat multicolour pin Maps had before the 2025 gradient icon as the launcher icon. |  |
 | Location provider toggle | Adds a Location source choice to the Customization screen: Android's own location providers, or Google Play services' fused provider. With Android, Play services is never asked for a location. Play services is never used while it is missing or disabled, so location keeps working on phones without it. | • Default to Play services location |
+| Maps identity | Installs Maps under a separate personal package while tracking it on the original Maps card in Morphe Manager 1.33. Existing tracked clones are retained. | • Maps package |
 | Network location fallback | Keeps the network (Wi-Fi/cell) location provider registered when no fused location provider answers, instead of GPS-only, so a fix does not go stale indoors. |  |
 | Offline saved places | Save places without a Google account, kept only on the phone: Save opens Maps' own "Place saved" sheet (Want to go, Travel plans, Starred places, Favorites, your own lists, a note), and a "Local saved" row on the account sheet rebuilds Maps' You tab -- your recent places (looked at, routed to, called, shared or saved), your lists and labels (Home, Work, your own) -- with export and import (backup file, KML, Google Takeout's Saved Places.json). |  |
 | Offline timeline | Adds a Timeline to the Local saved screen: a record of where the phone has been, grouped into days and visits, kept only on the phone, with GPX export. Recording is off until switched on there; it shows a notification while it runs. |  |
