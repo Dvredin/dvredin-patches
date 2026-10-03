@@ -42,10 +42,16 @@
           "purpose": "Complete My Location through native GPS settings for Android source; preserve stock Play path"
         },
         {
-          "commit": "0c086a6d01c2124a27f77bcda0454ee1bce0ba25",
+          "commit": "e4e8582c3bc6ba47ac85ed88fcf560e067ae51e0",
           "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/location/LocationProviderTogglePatch.kt",
-          "sha256": "40c36db4b889e5a553db3c091c68b491b01f32b4c744f3bf32f48d931ff438a1",
-          "purpose": "Wire the native settings correction into the existing provider toggle without adding a public patch"
+          "sha256": "c74b7a6dd09bc3147cd595bb983baa3d9553fad1e7431b37ac58a9f21fa1fd00",
+          "purpose": "Wire native settings and heading corrections into the existing provider toggle without adding a public patch"
+        },
+        {
+          "commit": "e4e8582c3bc6ba47ac85ed88fcf560e067ae51e0",
+          "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/location/NativeHeadingPatch.kt",
+          "sha256": "6fc4bc040bb2d506d57869697cf66db78a6c7d9a48aedc1d2647d139454c356c",
+          "purpose": "Reuse the existing Android compass when Android location mode is selected; preserve the full stock Play orientation selector"
         }
       ]
     }

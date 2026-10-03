@@ -33,6 +33,11 @@ feedback does not certify every checklist item or authorize a stable release.
 The separate [slow-startup report after eviction](docs/COLD_START.md) is documented
 and deferred after the maintainer reported normal startup. Its cause remains
 unknown; no startup runtime correction is claimed or scheduled.
+The local `1.1.0-dev.local.3` [native heading candidate](docs/NATIVE_HEADING.md)
+also makes Android location mode use Maps' existing compass instead of a possibly
+unavailable Google orientation backend. Its conditional source-selection defect
+was exercised in private QA; primary-device physical-turn acceptance is pending.
+It is not a stable release or a complete diagnosis of the primary installation.
 
 <!-- PATCHES_START -->
 > **[v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total

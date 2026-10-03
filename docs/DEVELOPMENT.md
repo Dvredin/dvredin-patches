@@ -94,6 +94,11 @@ The unreleased [Maps identity candidate](MAPS_IDENTITY.md) has its own resource,
 Manager tracking and in-place rebuild evidence. Its local patch compilation
 reused the unchanged accepted runtime extension; it is not a fresh full Gradle
 release build or primary-device acceptance.
+The later [native heading candidate](NATIVE_HEADING.md) adds only a source gate
+to Maps' existing compass and preserves the stock Play selector. It has separate
+forced-branch runtime, clean regression, exact-negative-input and Manager ART
+loader evidence; physical turning on the primary device remains unverified.
+Local plugin resolution is still blocked, so this is not a new official CI release.
 
 ## Reuse-first and diagnostics
 
