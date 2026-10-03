@@ -36,8 +36,10 @@ unknown; no startup runtime correction is claimed or scheduled.
 The local `1.1.0-dev.local.3` [native heading candidate](docs/NATIVE_HEADING.md)
 also makes Android location mode use Maps' existing compass instead of a possibly
 unavailable Google orientation backend. Its conditional source-selection defect
-was exercised in private QA; primary-device physical-turn acceptance is pending.
-It is not a stable release or a complete diagnosis of the primary installation.
+was exercised in private QA. After delivery, the maintainer confirmed that the
+heading works; the reported frozen-sector symptom is resolved by user report.
+This feedback does not certify every regression step, a complete runtime diagnosis
+or a stable release. The stable GitHub source has not been replaced.
 
 <!-- PATCHES_START -->
 > **[v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total

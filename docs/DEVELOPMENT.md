@@ -97,8 +97,12 @@ release build or primary-device acceptance.
 The later [native heading candidate](NATIVE_HEADING.md) adds only a source gate
 to Maps' existing compass and preserves the stock Play selector. It has separate
 forced-branch runtime, clean regression, exact-negative-input and Manager ART
-loader evidence; physical turning on the primary device remains unverified.
+loader evidence. After delivery, the maintainer reported heading working on the
+primary device; this user acceptance is distinct from laboratory measurement,
+exact installed-artifact readback and the full regression checklist.
 Local plugin resolution is still blocked, so this is not a new official CI release.
+The documentation-only acceptance update changes no patch code or source bundle
+and does not authorize public push, merge or stable publication.
 
 ## Reuse-first and diagnostics
 

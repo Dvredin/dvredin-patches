@@ -1,7 +1,7 @@
 # Native heading for the Android location source
 
-Status: unreleased local test candidate `1.1.0-dev.local.3`; primary-device
-physical-turn acceptance is pending. Published stable remains `v1.0.0`.
+Status: unreleased local candidate `1.1.0-dev.local.3`; the maintainer reports
+that heading works after delivery. Published stable remains `v1.0.0`.
 Implementation commit: `e4e8582c3bc6ba47ac85ed88fcf560e067ae51e0`.
 
 ## Symptom and conditional defect
@@ -74,9 +74,22 @@ approximate obfuscated-class match.
 The local official Gradle attempt still cannot resolve Morphe plugin `1.3.4`.
 This is not a fresh full Gradle/CI release build. A forced-branch runtime test and
 stationary sensor/heading publication do not establish accurate physical rotation
-or GrapheneOS behavior. Primary-device physical-turn acceptance remains required.
+or GrapheneOS behavior on their own. The maintainer subsequently reported the
+heading working, providing user acceptance of the reported symptom as described
+below; this does not turn the laboratory test into a physical-turn measurement.
 
-## Candidate and primary-device check
+## Maintainer acceptance
+
+After delivery of `1.1.0-dev.local.3`, the maintainer reported that the heading
+works and authorized a documentation update. The frozen-sector symptom is now
+recorded as resolved by maintainer report, not awaiting initial user feedback.
+The exact installed artifact/options were not independently read back, and the
+report does not separately certify every Home/resume step or numerical compass
+accuracy. This is acceptance of the reported behavior, not authorization to
+publish, merge or promote a stable release. No application code or bundle was
+changed in response to this feedback.
+
+## Candidate and regression procedure
 
 Local source: `Dvredin_Patches_Maps_Heading_1.1.0-dev.local.3.mpp`.
 Size: 605299 bytes. SHA-256:
