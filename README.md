@@ -14,37 +14,29 @@ or upstream-author release. Original developers retain their authorship.
 
 | Application | Original version | Current scope |
 |---|---|---|
-| Google Maps → Ungoogled Maps | `26.36.04.973607363` | bearinmind patches v1.3.0 plus the system-Cronet correction: 33 patches |
+| Google Maps → Maps | `26.36.04.973607363` | Reviewed upstream base with identity, native location/heading, import/privacy/proxy and system-Cronet corrections: 33 patches |
 
 Yandex applications and other patch families are not included yet.
 An application version is supported only after it has been identified and tested;
 there is no promise that a newer APK will work.
 
-The table and generated catalog below describe the published **v1.0.0**.
-The unreleased [personal Maps identity candidate](docs/MAPS_IDENTITY.md) changes
-its default name to **Maps** and package to `io.github.dvredin.maps`, while keeping
-the new installation on the original Maps card in Manager 1.33.0. It does not
-migrate old application data or delete historical clone cards. This candidate
-has not replaced the stable GitHub source. The local `1.1.0-dev.local.2` candidate
-also includes the [native My Location completion correction](docs/NATIVE_RECENTER.md)
-for the reproduced background/resume failure. The maintainer subsequently
-reported that the recenter error no longer occurs on the primary device; this
-feedback does not certify every checklist item or authorize a stable release.
-The separate [slow-startup report after eviction](docs/COLD_START.md) is documented
-and deferred after the maintainer reported normal startup. Its cause remains
-unknown; no startup runtime correction is claimed or scheduled.
-The local `1.1.0-dev.local.3` [native heading candidate](docs/NATIVE_HEADING.md)
-also makes Android location mode use Maps' existing compass instead of a possibly
-unavailable Google orientation backend. Its conditional source-selection defect
-was exercised in private QA. After delivery, the maintainer confirmed that the
-heading works; the reported frozen-sector symptom is resolved by user report.
-This feedback does not certify every regression step, a complete runtime diagnosis
-or a stable release. The stable GitHub source has not been replaced.
-The newer local `1.1.0-dev.local.4` [combined safety candidate](docs/PR_SAFETY_CANDIDATE.md)
-retains those changes and the existing system-Cronet correction, adding the
-maintainer's safe-import, imported-photo and fail-closed-proxy contributions
-(#12, #13 and #14). Its runtime extension is freshly compiled; maintainer testing
-of this combined candidate is required before the separately approved publication.
+The accepted source includes the [personal Maps identity](docs/MAPS_IDENTITY.md),
+[native My Location completion](docs/NATIVE_RECENTER.md),
+[native heading selection](docs/NATIVE_HEADING.md), and
+[safe import/photo/proxy corrections](docs/PR_SAFETY_CANDIDATE.md).
+The maintainer tested the combined candidate and approved stable publication.
+The generated catalog below is maintained by the release workflow; exact published
+version and artifact evidence are recorded in [Verification](docs/VERIFICATION.md).
+
+Default app name is **Maps**, installed separately as `io.github.dvredin.maps`.
+It stays on the original Maps card in Manager 1.33.0 without a new Clone card;
+historical installs are retained. Update the same package with the same Manager
+signing key. Changing from older Ungoogled Maps packages does not migrate data
+or signing identity automatically: preserve the old app and use normal backup/import.
+
+Selected-location nearby search and light-theme persistence remain in the
+[backlog](docs/BACKLOG.md), not in this release. The separate
+[startup investigation](docs/COLD_START.md) stays deferred; no startup fix is claimed.
 
 <!-- PATCHES_START -->
 > **[v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total
@@ -110,13 +102,16 @@ engine is left alone. The original fallback remains available when the system
 provider is unavailable or an application proxy is configured.
 
 The implementation is also submitted as [upstream PR #16](https://github.com/bearinmindcat/morphe-patches/pull/16).
-The published v1.0.0 does not include the earlier import, photo and proxy fixes.
-Their explicit adoption in the newer local test candidate is documented in
-[Combined Maps safety candidate](docs/PR_SAFETY_CANDIDATE.md).
-In the published v1.0.0, source branding alone does not change the installed
-application's name, package, permissions, or signing identity. The unreleased
-[Maps identity profile](docs/MAPS_IDENTITY.md) is a separate, explicit application
-identity change. Use the same Manager signing key for updates of the same package.
+The accepted update also adopts [safe imports, imported-photo privacy and
+fail-closed Cronet proxy](docs/PR_SAFETY_CANDIDATE.md) from contributions #12–14,
+alongside native recenter and heading selection. Imported remote photos use
+placeholders; existing local photos are retained. A required proxy that cannot
+be applied blocks that Cronet engine rather than silently continuing directly.
+This is not a whole-app firewall or zero-telemetry claim.
+
+The [Maps identity profile](docs/MAPS_IDENTITY.md) changes the output name/package
+separately from source branding. Use the same Manager signing key for updates
+of the same package. Upstream contribution links do not imply upstream merge.
 
 ## Use with Morphe
 

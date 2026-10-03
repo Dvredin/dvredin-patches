@@ -1,7 +1,10 @@
 # Combined Maps safety candidate
 
-Status: local test source `1.1.0-dev.local.4`, awaiting maintainer testing.
-Published stable remains `v1.0.0`; no stable release or public push was performed.
+Status: local test source `1.1.0-dev.local.4` accepted by the maintainer.
+The maintainer reports the application works well and explicitly approved
+publishing the current changes. Exact stable build/publication results are tracked
+in [Verification](VERIFICATION.md). The candidate evidence below records the
+pre-publication checks, not a claim that the official build already ran.
 Future changes are explicitly deferred to the next version. Selected nearby
 search and light-theme persistence are tracked in the [backlog](BACKLOG.md),
 not included in this candidate.
@@ -79,7 +82,8 @@ Verified gates:
 Successful real Cronet proxy networking, an all-stack traffic audit, physical
 turning on the primary phone for this combined candidate and the full Manager
 patch/install flow are not newly claimed. Earlier heading acceptance is preserved,
-but the maintainer must test this exact combined candidate before publication.
+and the maintainer subsequently accepted this exact combined candidate.
+That behavioral feedback does not separately certify every proxy/rotation test.
 
 ## Owner test source
 
@@ -96,5 +100,6 @@ Size: 606904 bytes. SHA-256:
    intended blocked/working behavior separately.
 
 Owner feedback on `.local.3` is not blanket acceptance of these new persistence/
-proxy changes. Publication awaits the maintainer's test of `.local.4`; there is
-no background release dispatch or automatic stable promotion.
+proxy changes. The maintainer subsequently tested `.local.4`, reported that it
+works well, and explicitly approved publication and documentation closeout.
+No automatic stable promotion or backlog implementation is enabled.

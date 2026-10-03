@@ -1,6 +1,8 @@
 # Personal Maps identity and one Manager card
 
-This is an unreleased candidate profile, not a change to the accepted v1.0.0 source.
+This profile is included in the accepted combined source approved for stable
+publication. Historical candidate checks follow; current publication evidence
+is recorded in [Verification](VERIFICATION.md).
 
 ## Requested behavior
 

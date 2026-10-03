@@ -1,7 +1,8 @@
-# Native My Location completion — unreleased correction
+# Native My Location completion
 
-The local `1.1.0-dev.local.2` candidate retains the [Maps identity](MAPS_IDENTITY.md)
-and corrects recenter after Home/resume. It does not replace stable `v1.0.0`.
+The correction is retained in the accepted combined source approved for stable
+publication. The historical `1.1.0-dev.local.2` candidate checks below establish
+its scope; current release status is tracked in [Verification](VERIFICATION.md).
 Original supported input remains `com.google.android.apps.maps`, version
 `26.36.04.973607363`. No new public patch or runtime extension is added: the
 correction is a dependency of **Location provider toggle**; the catalog remains
