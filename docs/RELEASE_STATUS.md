@@ -51,8 +51,9 @@ system-Cronet PR #16; it adopts safe-import/photo/proxy PR #12/#13/#14. It still
 contains 33 public patches for original Google Maps `26.36.04.973607363` only.
 No upstream merge or whole-app network firewall is claimed.
 
-Selected-location nearby search (#1) remains in [the backlog](BACKLOG.md), with
-no implementation or automatic scheduling. The maintainer withdrew the theme
-request (#11), reporting that it already works; no new theme correction was added.
+The maintainer withdrew selected-location nearby search (#1) and theme persistence
+(#11), reporting that both already work. The [active backlog is empty](BACKLOG.md);
+no additional nearby-search/theme patch, upstream issue closure or automatic
+scheduling followed from this feedback.
 The separate startup investigation stays deferred. Existing Maps data and
 Manager signing identities were not changed during publication preparation.

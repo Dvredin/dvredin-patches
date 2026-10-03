@@ -34,9 +34,10 @@ historical installs are retained. Update the same package with the same Manager
 signing key. Changing from older Ungoogled Maps packages does not migrate data
 or signing identity automatically: preserve the old app and use normal backup/import.
 
-Selected-location nearby search remains in the [backlog](docs/BACKLOG.md), not
-in this release. The maintainer withdrew the theme request after confirming
-that it already works in the current application. The separate
+The [active backlog is empty](docs/BACKLOG.md): the maintainer withdrew both
+selected-location nearby search and theme persistence after reporting that they
+already work in the current application. No additional correction was added for
+either request. The separate
 [startup investigation](docs/COLD_START.md) stays deferred; no startup fix is claimed.
 
 <!-- PATCHES_START -->
@@ -138,7 +139,7 @@ than a custom compiler or release service. See:
 
 - [Contribution entry point](CONTRIBUTING.md)
 - [Development and verification](docs/DEVELOPMENT.md)
-- [Deferred Maps backlog](docs/BACKLOG.md)
+- [Maps backlog status](docs/BACKLOG.md)
 - [Pinned upstream updates](docs/UPSTREAM_UPDATES.md)
 - [Release and publication](docs/PUBLISHING.md)
 - [Current combined update status](docs/RELEASE_STATUS.md)

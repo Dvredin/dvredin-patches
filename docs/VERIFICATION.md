@@ -46,8 +46,9 @@ compass/proxy audit. Existing device evidence is documented in the candidate gui
 Attestation generation passed; independent local cryptographic attestation
 verification is not claimed. Artifact integrity was independently checked.
 
-Only selected-location nearby search remains active in the [backlog](BACKLOG.md).
-The maintainer withdrew the theme request because it already works. No startup
+The [active backlog is empty](BACKLOG.md). The maintainer withdrew both nearby
+search and theme requests after reporting that the existing behavior works.
+No additional patch or upstream issue closure is claimed. No startup
 fix, exhaustive traffic audit, arbitrary future Maps/Android compatibility or
 automatic release/background feature worker is claimed.
 

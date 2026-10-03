@@ -5,10 +5,10 @@ promoted through the official fresh build to published **v1.1.0**.
 Exact stable artifact, CI and actual Manager source-update evidence is recorded
 in [Verification](VERIFICATION.md). The local candidate checks below are historical
 pre-publication evidence, distinct from the official release build.
-Future changes are explicitly deferred to the next version. Selected nearby
-search remains in the [backlog](BACKLOG.md), not included in this candidate.
-The theme request was later withdrawn after the maintainer confirmed that
-theme changes already work; no separate theme correction was added.
+No additional feature work is scheduled. The maintainer later withdrew both
+selected-location nearby search and theme persistence after reporting that the
+existing application already provides them. The [active backlog is empty](BACKLOG.md);
+no separate nearby-search/theme correction was added to this candidate.
 
 This candidate adds the maintainer's earlier contributions #12, #13 and #14 to
 the accepted personal Maps identity, [native recenter](NATIVE_RECENTER.md) and
