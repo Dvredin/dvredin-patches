@@ -22,7 +22,7 @@ val locationProviderTogglePatch = bytecodePatch(
     default = true,
 ) {
     compatibleWith(COMPATIBILITY_MAPS)
-    dependsOn(sharedExtensionPatch, applicationStartHookPatch, activityContextHookPatch)
+    dependsOn(sharedExtensionPatch, applicationStartHookPatch, activityContextHookPatch, nativeLocationSettingsPatch)
 
     val useFusedProvider = booleanOption(
         key = "useFusedProvider",

@@ -25,7 +25,9 @@ The unreleased [personal Maps identity candidate](docs/MAPS_IDENTITY.md) changes
 its default name to **Maps** and package to `io.github.dvredin.maps`, while keeping
 the new installation on the original Maps card in Manager 1.33.0. It does not
 migrate old application data or delete historical clone cards. This candidate
-has not replaced the stable GitHub source.
+has not replaced the stable GitHub source. The local `1.1.0-dev.local.2` candidate
+also includes the [native My Location completion correction](docs/NATIVE_RECENTER.md)
+for the reproduced background/resume failure.
 
 <!-- PATCHES_START -->
 > **[v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total

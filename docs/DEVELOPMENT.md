@@ -85,8 +85,10 @@ with the accepted application. The new GitHub remote source passed actual Manage
 import/coexistence/cold launch. See [verification and limits](VERIFICATION.md).
 Earlier local GitHub registry access failures are not current CI failures; keep
 local package-read credentials separate from successful repository-write auth.
-No additional My Location patch was needed. Future changes must pass their own
-relevant gates; this release's evidence does not certify arbitrary new inputs.
+The original acceptance covered cold My Location, not background/resume stability.
+The later reproducible failure and unreleased correction are documented in
+[Native My Location completion](NATIVE_RECENTER.md). Future changes must pass their
+own relevant gates; this release's evidence does not certify arbitrary new inputs.
 
 The unreleased [Maps identity candidate](MAPS_IDENTITY.md) has its own resource,
 Manager tracking and in-place rebuild evidence. Its local patch compilation
