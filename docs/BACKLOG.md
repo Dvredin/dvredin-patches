@@ -16,16 +16,9 @@ publication gate. No automatic worker, issue creation or release is authorized.
 - Acceptance: results are centered on the chosen place/point; ordinary current-
   location search, place details and recenter behavior remain available.
 
-## Persist the selected light theme
+## Removed from the active backlog
 
-- [ ] Make an explicit light-theme choice survive reopening Maps.
-- Source: [upstream issue #11](https://github.com/bearinmindcat/morphe-patches/issues/11).
-- Status: backlog; owner usually uses dark mode but wants light mode to work too.
-- Reported symptom: with a dark system theme, choosing always-light Maps reverts
-  to dark after reopening. This is an upstream report, not a newly reproduced
-  defect in the owner's current build.
-- Before implementation: reproduce it and inspect the interaction with Black
-  theme and the app's theme settings. Do not claim a root cause from the report.
-- Acceptance: explicit light choice persists through cold reopen and Home/resume,
-  including with dark system theme; existing dark/AMOLED behavior remains available
-  when selected. Define precedence between these choices before changing the UI.
+Light-theme persistence ([upstream issue #11](https://github.com/bearinmindcat/morphe-patches/issues/11))
+was withdrawn by the maintainer after reporting that theme changes already work
+in the current application. No new theme correction was implemented, no upstream
+issue was closed, and universal resolution of other users' reports is not claimed.

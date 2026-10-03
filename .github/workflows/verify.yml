@@ -35,6 +35,8 @@ jobs:
           node-version: '24'
           cache: pnpm
       - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Verify pinned release dependency source and depth guards
+        run: node --test tests/test_release_dependencies.cjs
       - run: pnpm audit --audit-level=high
       - name: Compile actual patch and extension sources
         id: build

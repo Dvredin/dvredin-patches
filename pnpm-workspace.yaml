@@ -3,3 +3,6 @@
 # npm-publishing plugin using pnpm's maintained dependency-removal feature.
 overrides:
   "semantic-release>@semantic-release/npm": "-"
+  # Reviewed upstream PR #72 fixes GHSA-vfj7-8cjw-p6xm; immutable commit, not
+  # a published fixed npm version. Keep the audit and behavioral gate enabled.
+  braces: "git+https://github.com/micromatch/braces.git#28d440b5dd449dbf1fe6f3506cf94ecca4d02660"

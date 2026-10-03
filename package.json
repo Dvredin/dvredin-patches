@@ -1,6 +1,7 @@
 {
   "packageManager": "pnpm@12.8.1",
   "devDependencies": {
+    "braces": "git+https://github.com/micromatch/braces.git#28d440b5dd449dbf1fe6f3506cf94ecca4d02660",
     "@cleyrop-org/semantic-release-backmerge": "^6.2.0",
     "@MorpheApp/changelog": "git+https://github.com/MorpheApp/changelog.git#bundle",
     "@semantic-release/exec": "^7.1.0",

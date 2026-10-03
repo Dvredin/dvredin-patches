@@ -6,8 +6,9 @@ publishing the current changes. Exact stable build/publication results are track
 in [Verification](VERIFICATION.md). The candidate evidence below records the
 pre-publication checks, not a claim that the official build already ran.
 Future changes are explicitly deferred to the next version. Selected nearby
-search and light-theme persistence are tracked in the [backlog](BACKLOG.md),
-not included in this candidate.
+search remains in the [backlog](BACKLOG.md), not included in this candidate.
+The theme request was later withdrawn after the maintainer confirmed that
+theme changes already work; no separate theme correction was added.
 
 This candidate adds the maintainer's earlier contributions #12, #13 and #14 to
 the accepted personal Maps identity, [native recenter](NATIVE_RECENTER.md) and

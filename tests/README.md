@@ -20,3 +20,16 @@ The adopted PR #12/#13/#14 regressions run together: 10 saved-store/import tests
 settings/hook tests. This is separate from the Python source/repository contracts.
 The Verify and Release workflows run this isolated behavior project before the
 production build. See [combined candidate evidence](../docs/PR_SAFETY_CANDIDATE.md).
+
+## Release-tool dependency regressions
+
+After `pnpm install --frozen-lockfile --ignore-scripts`, run:
+
+```sh
+node --test tests/test_release_dependencies.cjs
+pnpm audit --audit-level=high
+```
+
+These verify the immutable installed upstream source, active transitive resolution,
+normal globs and depth guards. Registry audit alone cannot assess a Git-only fix.
+See [the reviewed dependency pin](../docs/RELEASE_DEPENDENCIES.md).

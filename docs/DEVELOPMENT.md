@@ -26,7 +26,10 @@ feature to exclude the unused default `@semantic-release/npm` dependency. This
 removes its vulnerable bundled npm CLI instead of allowing advisory exceptions
 or replacing libraries with stubs. The repository guard rejects an npm publishing
 plugin or inherited configuration while this removal is active. Audit the actual
-installed graph normally; do not ignore failed audit exits.
+installed graph normally; do not ignore failed audit exits. The separately
+authorized [release-tool security pin](RELEASE_DEPENDENCIES.md) has immutable
+source/integrity and direct behavioral gates because registry audit alone cannot
+certify an unpublished Git correction.
 
 The official Semantic Release CLI uses the original Morphe `.releaserc`. The
 extra npm-installing action wrapper is not used because it creates an independent,
