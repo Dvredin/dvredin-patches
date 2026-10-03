@@ -23,7 +23,37 @@ Static inspection of the local QA APK shows Google Play services providers are
 considered in that enumeration before Java fallback selection. This is a candidate
 startup dependency to time, **not proof that it causes this report's delay**.
 The renderer, initial map requests and state restoration remain other candidates.
-No measured cold-start latency or critical-path trace is available for this report.
+No critical-path trace of the owner's reported delay is available. The bounded
+QA measurements below did not reproduce that delay.
+
+## Dedicated-device swipe test
+
+A Pixel 8 / Android 16 test on 2026-10-03 used the clean local recenter QA candidate
+with Google Play services temporarily disabled. Actual recent-task swipes were
+validated against fresh UI hierarchy and task state; the measured trigger was
+not replaced with force-stop. All three swipe/reopen runs recreated the process
+and were classified as COLD. Two Home/reopen controls retained the process and
+were HOT.
+
+| Scenario | Runs | Android first-window time |
+|---|---:|---|
+| Swipe recent task, reopen | 3 | 234–240 ms |
+| Home, reopen | 2 | 91–111 ms |
+
+These are Android `am start -W` first-window times, not fully loaded map latency.
+Recorded frames separately showed a loaded map within one second of the visible
+opening transition; a 2–3-second blank gray screen was not reproduced. One video's
+initial Home animation makes its transition time only an upper bound. The map
+viewport was at broad zoom with existing cached tiles: this does not measure
+uncached requests, street-level restoration or the primary GrapheneOS device.
+No later blank-map relapse or relevant package-PID fatal/ANR entry was observed.
+App data/caches were retained; temporary GMS/screen settings were restored and
+the dedicated device was put back to sleep. No startup runtime code was changed.
+Raw device videos, logs and receipts remain private.
+
+A primary-device swipe/reopen recording is the next evidence boundary: distinguish
+the OS splash, blank Maps activity and a visible interface waiting for tiles.
+The GMS/Cronet suggestion remains unconfirmed, not an established root cause.
 
 ## Required diagnosis before a runtime change
 
@@ -40,6 +70,7 @@ No measured cold-start latency or critical-path trace is available for this repo
    the gray screen, force the process to stay alive or remove unrelated checks.
 5. Repeat cold and warm measurements and recenter lifecycle/GPS-off regression.
 
-No runtime patch, installation, device setting change or release is authorized or
-performed by this documentation update. Stable `v1.0.0` is unchanged. Local
-`1.1.0-dev.local.2` remains a behavioral candidate, not a fresh official release.
+No startup runtime patch, new installation or release was performed. Temporary
+device-QA settings for the subsequently authorized test were restored. Stable
+`v1.0.0` is unchanged. Local `1.1.0-dev.local.2` remains a behavioral candidate,
+not a fresh official release.
