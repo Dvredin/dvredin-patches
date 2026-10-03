@@ -2,11 +2,16 @@
 
 The maintainer accepted the application built from `1.1.0-dev.local.4` and
 explicitly approved publishing the current changes and updating documentation.
-The accepted integration source is on `dev`; stable `main` and the published
-[v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0) remain unchanged.
-**No new stable release was dispatched or published.**
+The accepted integration source is on `dev`. The separately authorized
+[release-tool correction](RELEASE_DEPENDENCIES.md) has removed the audit blocker:
+[Verify run 37129320924](https://github.com/Dvredin/dvredin-patches/actions/runs/37129320924)
+passed every gate on `5c7b0692760c428800536abc5d66fed63ed4f03e`, including ordinary
+frozen install, seven security regressions, audit, extension behavior tests,
+official Gradle compilation and downloadable candidate upload.
+At this pre-dispatch checkpoint stable remains v1.0.0; exact publication/readback
+results belong in [Verification](VERIFICATION.md), not inferred from CI success.
 
-## Actual official build and blocker
+## Historical official build and blocker
 
 [Verify run 37127801386](https://github.com/Dvredin/dvredin-patches/actions/runs/37127801386),
 source `ccace92dcd92ae56e4211e75451a046c6c724bfd`:
@@ -29,10 +34,11 @@ Upstream [PR #72](https://github.com/micromatch/braces/pull/72), head
 `28d440b5dd449dbf1fe6f3506cf94ecca4d02660`, proposes a fix but remains open/unmerged.
 It was inspected for status and scope, not adopted or certified by this project.
 
-The audit was not disabled, ignored, or made successful by replacing metadata.
-No unmerged dependency fork, local vendor patch or advisory waiver was installed.
-Dependency resolution/publication needs a separate explicit decision or an
-available maintained fixed release, followed by fresh audit/build/release gates.
+The maintainer subsequently explicitly authorized verifying and applying the
+upstream correction. The immutable reviewed commit is now installed through the
+maintained pnpm override with source/integrity and direct behavioral gates.
+The audit remains enabled, no advisory waiver or fake version is used, and fresh
+CI has passed. The PR is still not represented as merged or published by upstream.
 There is no automatic stable promotion or background release executor.
 
 ## Accepted scope and deferred work
