@@ -2,7 +2,9 @@
 
 Status: local test source `1.1.0-dev.local.4`, awaiting maintainer testing.
 Published stable remains `v1.0.0`; no stable release or public push was performed.
-Future changes are explicitly deferred to the next version.
+Future changes are explicitly deferred to the next version. Selected nearby
+search and light-theme persistence are tracked in the [backlog](BACKLOG.md),
+not included in this candidate.
 
 This candidate adds the maintainer's earlier contributions #12, #13 and #14 to
 the accepted personal Maps identity, [native recenter](NATIVE_RECENTER.md) and

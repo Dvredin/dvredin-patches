@@ -142,6 +142,7 @@ than a custom compiler or release service. See:
 
 - [Contribution entry point](CONTRIBUTING.md)
 - [Development and verification](docs/DEVELOPMENT.md)
+- [Deferred Maps backlog](docs/BACKLOG.md)
 - [Pinned upstream updates](docs/UPSTREAM_UPDATES.md)
 - [Release and publication](docs/PUBLISHING.md)
 - [Provenance and credits](docs/PROVENANCE.md)
