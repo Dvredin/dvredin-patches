@@ -80,9 +80,16 @@ compiled patch code and the unchanged accepted `v1.0.0` extension. It is a verif
 local behavioral candidate, not a fresh full Gradle/CI release build. No credentials
 or registry scopes were changed to bypass this boundary.
 
-Primary Pixel 10 / GrapheneOS acceptance, a fresh official release build, and
-explicit publication approval remain separate gates. No remote branch, source,
-upstream PR or stable release was updated by this correction.
+On 2026-10-03, after delivery of `1.1.0-dev.local.2`, the maintainer reported that
+the application appears to work and the recenter error no longer occurs on the
+primary device. The exact installed build was not independently checked. This
+is owner-reported changed-behavior acceptance, not an independently measured or
+exhaustive run of every checklist item. A fresh official release build and explicit
+publication approval remain separate gates. No remote branch, source, upstream
+PR or stable release was updated by this correction.
+
+A separate [slow cold-start report](COLD_START.md) concerns the gray screen after
+the application is evicted/unloaded; it does not reopen the fixed recenter report.
 
 ## Owner test
 

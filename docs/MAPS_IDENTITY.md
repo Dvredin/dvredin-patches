@@ -89,8 +89,12 @@ extension from accepted v1.0.0; that narrower route is **not a fresh full Gradle
 release build**. The actual Manager application builds above used this candidate.
 
 The source is local and unreleased. No public branch push, stable metadata edit,
-release dispatch or main/dev promotion was performed. Primary-device acceptance
-and an approved maintained full build/publication remain separate release gates.
+release dispatch or main/dev promotion was performed. The later `1.1.0-dev.local.2`
+retains this identity and adds the [native recenter correction](NATIVE_RECENTER.md).
+The maintainer reported that the recenter error no longer occurs on the primary
+device; this feedback is not a fresh exhaustive verification of Manager tracking
+or every identity checklist item. An approved maintained full build/publication
+remains a separate release gate.
 Raw APKs, device identities/logs/screens and exact private receipts stay outside
 the public tree. Old sources were restored to their prior enabled states, the
 candidate source was left disabled, temporary broad file access was restored,

@@ -27,7 +27,11 @@ the new installation on the original Maps card in Manager 1.33.0. It does not
 migrate old application data or delete historical clone cards. This candidate
 has not replaced the stable GitHub source. The local `1.1.0-dev.local.2` candidate
 also includes the [native My Location completion correction](docs/NATIVE_RECENTER.md)
-for the reproduced background/resume failure.
+for the reproduced background/resume failure. The maintainer subsequently
+reported that the recenter error no longer occurs on the primary device; this
+feedback does not certify every checklist item or authorize a stable release.
+The separate [slow-startup report after eviction](docs/COLD_START.md) is documented
+but has no confirmed cause or runtime correction yet.
 
 <!-- PATCHES_START -->
 > **[v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total
