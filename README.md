@@ -31,7 +31,8 @@ for the reproduced background/resume failure. The maintainer subsequently
 reported that the recenter error no longer occurs on the primary device; this
 feedback does not certify every checklist item or authorize a stable release.
 The separate [slow-startup report after eviction](docs/COLD_START.md) is documented
-but has no confirmed cause or runtime correction yet.
+and deferred after the maintainer reported normal startup. Its cause remains
+unknown; no startup runtime correction is claimed or scheduled.
 
 <!-- PATCHES_START -->
 > **[v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total

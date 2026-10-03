@@ -1,5 +1,13 @@
 # Slow startup after application eviction
 
+## Status: deferred by maintainer
+
+After the tests, the maintainer reported that startup is also working normally on
+the primary device and explicitly deferred further investigation. The cause of
+the previously reported delay is unknown; this is not a claimed startup fix.
+Retain the measured results and private evidence. No monitoring, retry, startup
+patch or automatic resumption is scheduled. Reopen only on a new maintainer request.
+
 ## Report and scope
 
 On 2026-10-03 the maintainer reported a prolonged gray screen when reopening Maps,
@@ -51,11 +59,12 @@ App data/caches were retained; temporary GMS/screen settings were restored and
 the dedicated device was put back to sleep. No startup runtime code was changed.
 Raw device videos, logs and receipts remain private.
 
-A primary-device swipe/reopen recording is the next evidence boundary: distinguish
-the OS splash, blank Maps activity and a visible interface waiting for tiles.
+If the maintainer reopens this report, a primary-device swipe/reopen recording is
+the next evidence boundary: distinguish the OS splash, blank Maps activity and a
+visible interface waiting for tiles. This is not an active recording request.
 The GMS/Cronet suggestion remains unconfirmed, not an established root cause.
 
-## Required diagnosis before a runtime change
+## Retained diagnosis checklist if the report is reopened
 
 1. Use the confirmed swipe-away/reopen action and verify the exact installed
    source/options.
