@@ -1,7 +1,7 @@
 # Native My Location completion
 
-The correction is retained in the accepted combined source approved for stable
-publication. The historical `1.1.0-dev.local.2` candidate checks below establish
+The correction is included in published **v1.1.0**. The historical
+`1.1.0-dev.local.2` candidate checks below establish
 its scope; current release status is tracked in [Verification](VERIFICATION.md).
 Original supported input remains `com.google.android.apps.maps`, version
 `26.36.04.973607363`. No new public patch or runtime extension is added: the
@@ -75,7 +75,7 @@ in the source bundle. Original authorship, GPL/NOTICE and upstream pins remain.
 
 ## Build and release boundary
 
-Local full Gradle build is still blocked before compilation: Morphe Gradle plugin
+At the historical local-candidate stage, full Gradle was blocked: Morphe plugin
 `1.3.4` is unavailable in the offline cache. The local candidate contains freshly
 compiled patch code and the unchanged accepted `v1.0.0` extension. It is a verified
 local behavioral candidate, not a fresh full Gradle/CI release build. No credentials

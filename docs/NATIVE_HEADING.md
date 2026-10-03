@@ -1,9 +1,9 @@
 # Native heading for the Android location source
 
-Status: heading correction retained in the accepted combined source approved
-for stable publication. The maintainer confirmed heading and subsequently the
-combined `.local.4` application work. Historical `.local.3` checks follow; current
-release evidence is recorded in [Verification](VERIFICATION.md).
+Status: heading correction included in published **v1.1.0**. The maintainer
+confirmed heading and subsequently the combined `.local.4` application work.
+Historical `.local.3` checks follow; official release evidence and limits are
+recorded in [Verification](VERIFICATION.md).
 Implementation commit: `e4e8582c3bc6ba47ac85ed88fcf560e067ae51e0`.
 
 ## Symptom and conditional defect

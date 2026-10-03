@@ -81,19 +81,23 @@ is not a passed gate; inspect the resulting state before retrying.
 
 ## Current release evidence
 
-The repository's actual Gradle/CI build and Semantic Release publication now pass.
-Stable v1.0.0 includes 33 patches. The downloaded source was checked against the
-uploaded digest, applied to the exact supported input, and compared semantically
-with the accepted application. The new GitHub remote source passed actual Manager
-import/coexistence/cold launch. See [verification and limits](VERIFICATION.md).
+Stable **v1.1.0** is published through the maintained official Gradle/Semantic
+Release workflow. Fresh build, extension behavior and dependency-source regressions,
+frozen install, audit and attestation passed. The independently downloaded asset
+matches its uploaded digest and all 124 executable entries of the official CI
+candidate. All 33 patches applied to the exact supported original input. Actual
+Manager Remote source update from 1.0.0 to 1.1.0, coexistence and cold Home passed.
+See [verification and explicit limits](VERIFICATION.md).
 Earlier local GitHub registry access failures are not current CI failures; keep
 local package-read credentials separate from successful repository-write auth.
-The original acceptance covered cold My Location, not background/resume stability.
-The later reproducible failure and unreleased correction are documented in
-[Native My Location completion](NATIVE_RECENTER.md). Future changes must pass their
-own relevant gates; this release's evidence does not certify arbitrary new inputs.
+The earlier v1.0.0 acceptance covered cold My Location, not background/resume.
+v1.1.0 includes the separately tested [native completion](NATIVE_RECENTER.md),
+heading, identity and import/privacy/proxy changes. Future changes need their own
+gates; this release does not certify arbitrary inputs or exhaustive proxy traffic.
 
-The unreleased [Maps identity candidate](MAPS_IDENTITY.md) has its own resource,
+### Historical local candidate evidence
+
+The [Maps identity candidate](MAPS_IDENTITY.md) had its own resource,
 Manager tracking and in-place rebuild evidence. Its local patch compilation
 reused the unchanged accepted runtime extension; it is not a fresh full Gradle
 release build or primary-device acceptance.
@@ -103,9 +107,10 @@ forced-branch runtime, clean regression, exact-negative-input and Manager ART
 loader evidence. After delivery, the maintainer reported heading working on the
 primary device; this user acceptance is distinct from laboratory measurement,
 exact installed-artifact readback and the full regression checklist.
-Local plugin resolution is still blocked, so this is not a new official CI release.
-The documentation-only acceptance update changes no patch code or source bundle
-and does not authorize public push, merge or stable publication.
+That heading-only local route could not resolve the plugin offline and was not
+an official release build. Its documentation-only acceptance did not itself
+authorize publication. Subsequent combined acceptance, official CI and explicit
+publication approval are separate evidence, now recorded for v1.1.0.
 
 The later [combined safety candidate](PR_SAFETY_CANDIDATE.md) explicitly adopts
 PR #12/#13/#14 while retaining #16 and accepted identity/recenter/heading behavior.
@@ -114,10 +119,10 @@ sources. Its combined 20 extension behavior tests and 23 source/repository tests
 passed, and actual Manager import plus Pixel 8 regressions are recorded separately.
 Both maintained CI workflows run `./gradlew -p tests test --no-daemon`. The
 maintainer subsequently accepted this exact candidate and approved publication.
-Official CI compilation and behavior regressions now passed; the overall Verify
-run failed on an unpatched release-tool dependency audit. Stable remains v1.0.0.
-See [current status and exact CI evidence](RELEASE_STATUS.md), rather than treating
-the earlier local registry failure or initial-release audit as current results.
+The first official Verify passed compilation but failed the release-tool audit.
+After the separately approved security pin, fresh Verify and stable Release passed.
+Stable is now v1.1.0. See [status history and exact CI evidence](RELEASE_STATUS.md);
+the initial audit failure and local registry failure are not current blockers.
 
 ## Reuse-first and diagnostics
 

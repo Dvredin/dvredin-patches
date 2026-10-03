@@ -1,9 +1,59 @@
-# v1.0.0 verification and boundaries
+# Published release verification and boundaries
 
-Current stable is still `v1.0.0`. The later combined application was accepted,
-but publication is blocked by a release-tool dependency audit, not Android
-compilation. See [current update status and exact CI evidence](RELEASE_STATUS.md).
-The v1.0.0 evidence below is historical and does not certify that later release.
+## Current stable v1.1.0
+
+Stable [v1.1.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.1.0)
+is published, not a prerelease or local candidate. The maintainer accepted the
+combined `.local.4` application and explicitly approved publication and the
+reviewed [release-tool dependency correction](RELEASE_DEPENDENCIES.md).
+
+- Source/tag: `9959031b61b58b2c39f1439de917804df60c1cb3`.
+- [Official Verify](https://github.com/Dvredin/dvredin-patches/actions/runs/37129320924)
+  and [Semantic Release](https://github.com/Dvredin/dvredin-patches/actions/runs/37130046571)
+  passed, including fresh Gradle compilation, extension behavior regressions,
+  frozen install, unchanged audit, seven dependency-source/behavior checks and
+  the publication/provenance-attestation steps.
+- Asset `patches-1.1.0.mpp`: **572798 bytes**, SHA-256
+  `693621114ff3ff858f7b68c83b561591f6b2b636ccc82eaa07046c0881873209`.
+  The independently downloaded size/hash equal the uploaded asset receipt.
+  ZIP integrity, manifest/name/version, GPL/NOTICE and source reference passed;
+  no APK, signing key or private diagnostic payload is included.
+- All **124 executable class/DEX/extension archive entries** exactly match the
+  officially built and tested CI candidate. Generated source metadata points to
+  this repository's exact stable asset. All 33 patches applied to supported
+  original Google Maps `26.36.04.973607363`, with zero failures.
+- Independent generated-APK verification found **355841 closed Maps method
+  shapes** identical to the accepted heading candidate, retaining native heading,
+  recenter and Cronet. Ten selected PR implementation methods match the fresh
+  official extension in the generated APK. The official AGP R shell was proved
+  empty/unreferenced. The official extension is not claimed byte-identical to
+  manual `.local.4`: compiler-generated lambda classes differ between build routes.
+- Real Manager `1.33.0` on Pixel 8/Android 16 updated the **existing GitHub Remote
+  source from 1.0.0 to 1.1.0**, showing 33 patches/one app. The eight existing
+  sources, disabled state and local candidates were retained. Cold Home remained
+  foreground with a stable PID and no relevant fatal/duplicate-key exception.
+  This is a real source-version update, not an application installation test.
+
+Default output name/package: **Maps** / `io.github.dvredin.maps`; the application
+keeps the original Maps version `26.36.04.973607363`. Source-bundle version `1.1.0`
+is separate. Use the same Manager signing key for same-package updates; older
+Ungoogled Maps packages have separate data, not automatic migration.
+
+The publication task did not repeat full Manager patch/sign/install or an in-place
+application upgrade using this official artifact. Primary-device acceptance is
+owner feedback on `.local.4`, not an independently read-back install or quantitative
+compass/proxy audit. Existing device evidence is documented in the candidate guides.
+Attestation generation passed; independent local cryptographic attestation
+verification is not claimed. Artifact integrity was independently checked.
+
+Only selected-location nearby search remains active in the [backlog](BACKLOG.md).
+The maintainer withdrew the theme request because it already works. No startup
+fix, exhaustive traffic audit, arbitrary future Maps/Android compatibility or
+automatic release/background feature worker is claimed.
+
+## Historical v1.0.0 evidence
+
+The following evidence describes the earlier release only.
 
 Stable source release: [v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0).
 Input: original Google Maps `26.36.04.973607363` only. Output app/package options

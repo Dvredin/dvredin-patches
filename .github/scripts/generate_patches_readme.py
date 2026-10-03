@@ -47,7 +47,7 @@ def pkg_emoji(pkg):
 APP_RENAMES = {
     "com.google.android.apps.maps": (
         '<img src="docs/icons/pin-google.png" width="20" height="20" align="top"> Google Maps',
-        '<img src="docs/icons/pin-ungoogled.png" width="20" height="20" align="top"> Ungoogled Maps',
+        '<img src="docs/icons/pin-ungoogled.png" width="20" height="20" align="top"> Maps',
     ),
 }
 

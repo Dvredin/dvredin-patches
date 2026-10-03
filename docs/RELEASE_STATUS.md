@@ -8,8 +8,10 @@ The accepted integration source is on `dev`. The separately authorized
 passed every gate on `5c7b0692760c428800536abc5d66fed63ed4f03e`, including ordinary
 frozen install, seven security regressions, audit, extension behavior tests,
 official Gradle compilation and downloadable candidate upload.
-At this pre-dispatch checkpoint stable remains v1.0.0; exact publication/readback
-results belong in [Verification](VERIFICATION.md), not inferred from CI success.
+Stable [v1.1.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.1.0)
+was subsequently published by [Release run 37130046571](https://github.com/Dvredin/dvredin-patches/actions/runs/37130046571).
+Exact tag, asset/metadata readback and actual Manager version-to-version source
+update passed; see [Verification](VERIFICATION.md) for results and limits.
 
 ## Historical official build and blocker
 
@@ -32,7 +34,8 @@ Maps dependency or evidence of an application regression. At this check, npm's
 latest version is `3.0.3` and the advisory has no first patched version.
 Upstream [PR #72](https://github.com/micromatch/braces/pull/72), head
 `28d440b5dd449dbf1fe6f3506cf94ecca4d02660`, proposes a fix but remains open/unmerged.
-It was inspected for status and scope, not adopted or certified by this project.
+At that failed-run checkpoint it was inspected only, not adopted. The separately
+authorized adoption and subsequent successful gates are recorded above.
 
 The maintainer subsequently explicitly authorized verifying and applying the
 upstream correction. The immutable reviewed commit is now installed through the

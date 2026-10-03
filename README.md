@@ -20,7 +20,7 @@ Yandex applications and other patch families are not included yet.
 An application version is supported only after it has been identified and tested;
 there is no promise that a newer APK will work.
 
-The accepted source includes the [personal Maps identity](docs/MAPS_IDENTITY.md),
+Stable **v1.1.0** includes the [personal Maps identity](docs/MAPS_IDENTITY.md),
 [native My Location completion](docs/NATIVE_RECENTER.md),
 [native heading selection](docs/NATIVE_HEADING.md), and
 [safe import/photo/proxy corrections](docs/PR_SAFETY_CANDIDATE.md).
@@ -42,7 +42,7 @@ that it already works in the current application. The separate
 <!-- PATCHES_START -->
 > **[v1.1.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.1.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total
 <details>
-<summary><img src="docs/icons/pin-google.png" width="20" height="20" align="top"> Google Maps&nbsp;&nbsp;-&gt;&nbsp;&nbsp;<img src="docs/icons/pin-ungoogled.png" width="20" height="20" align="top"> Ungoogled Maps&nbsp;&nbsp;•&nbsp;&nbsp;33 patches</summary>
+<summary><img src="docs/icons/pin-google.png" width="20" height="20" align="top"> Google Maps&nbsp;&nbsp;-&gt;&nbsp;&nbsp;<img src="docs/icons/pin-ungoogled.png" width="20" height="20" align="top"> Maps&nbsp;&nbsp;•&nbsp;&nbsp;33 patches</summary>
 <br>
 
 <p>

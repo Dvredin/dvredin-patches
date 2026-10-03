@@ -74,8 +74,10 @@ This one-time approval does not authorize future stable dispatches automatically
 
 ## Accepted combined update
 
-The maintainer subsequently accepted `.local.4` and explicitly approved current
-publication. Official CI compilation and behavior regressions passed, but the
-dependency audit failed on unpatched `braces` (GHSA-vfj7-8cjw-p6xm). No stable
-dispatch or promotion followed. See [current status](RELEASE_STATUS.md); do not
-apply the earlier initial-publication success to this newer dependency failure.
+The maintainer accepted `.local.4`, approved publication, and then explicitly
+authorized the reviewed dependency correction after the initial audit blocker.
+The maintained frozen install, source/behavior regression gate and audit passed,
+followed by official stable Release and attestation. **v1.1.0 is published**;
+asset/metadata readback and actual Manager Remote 1.0.0-to-1.1.0 update passed.
+See [verification and limits](VERIFICATION.md) and [status history](RELEASE_STATUS.md).
+Do not recreate the historical blocker or treat approval as an automatic release loop.

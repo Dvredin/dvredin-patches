@@ -1,10 +1,10 @@
 # Combined Maps safety candidate
 
-Status: local test source `1.1.0-dev.local.4` accepted by the maintainer.
-The maintainer reports the application works well and explicitly approved
-publishing the current changes. Exact stable build/publication results are tracked
-in [Verification](VERIFICATION.md). The candidate evidence below records the
-pre-publication checks, not a claim that the official build already ran.
+Status: local test source `1.1.0-dev.local.4` accepted by the maintainer and
+promoted through the official fresh build to published **v1.1.0**.
+Exact stable artifact, CI and actual Manager source-update evidence is recorded
+in [Verification](VERIFICATION.md). The local candidate checks below are historical
+pre-publication evidence, distinct from the official release build.
 Future changes are explicitly deferred to the next version. Selected nearby
 search remains in the [backlog](BACKLOG.md), not included in this candidate.
 The theme request was later withdrawn after the maintainer confirmed that
