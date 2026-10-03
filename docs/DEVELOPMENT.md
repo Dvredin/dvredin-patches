@@ -109,8 +109,12 @@ PR #12/#13/#14 while retaining #16 and accepted identity/recenter/heading behavi
 Unlike the heading-only route, it freshly compiles all production Java extension
 sources. Its combined 20 extension behavior tests and 23 source/repository tests
 passed, and actual Manager import plus Pixel 8 regressions are recorded separately.
-Both maintained CI workflows run `./gradlew -p tests test --no-daemon`; the next
-release still needs the official build and owner acceptance of this exact candidate.
+Both maintained CI workflows run `./gradlew -p tests test --no-daemon`. The
+maintainer subsequently accepted this exact candidate and approved publication.
+Official CI compilation and behavior regressions now passed; the overall Verify
+run failed on an unpatched release-tool dependency audit. Stable remains v1.0.0.
+See [current status and exact CI evidence](RELEASE_STATUS.md), rather than treating
+the earlier local registry failure or initial-release audit as current results.
 
 ## Reuse-first and diagnostics
 

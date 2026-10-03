@@ -71,3 +71,11 @@ its own build, dependency audit, artifact readback and actual Manager remote-sou
 gates. See [verification and limits](VERIFICATION.md). Earlier preparation blockers
 were resolved; do not substitute those historical failures for current release state.
 This one-time approval does not authorize future stable dispatches automatically.
+
+## Accepted combined update
+
+The maintainer subsequently accepted `.local.4` and explicitly approved current
+publication. Official CI compilation and behavior regressions passed, but the
+dependency audit failed on unpatched `braces` (GHSA-vfj7-8cjw-p6xm). No stable
+dispatch or promotion followed. See [current status](RELEASE_STATUS.md); do not
+apply the earlier initial-publication success to this newer dependency failure.

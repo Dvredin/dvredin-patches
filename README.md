@@ -140,6 +140,7 @@ than a custom compiler or release service. See:
 - [Deferred Maps backlog](docs/BACKLOG.md)
 - [Pinned upstream updates](docs/UPSTREAM_UPDATES.md)
 - [Release and publication](docs/PUBLISHING.md)
+- [Current combined update status](docs/RELEASE_STATUS.md)
 - [Provenance and credits](docs/PROVENANCE.md)
 - [Published release verification and limits](docs/VERIFICATION.md)
 

@@ -1,5 +1,10 @@
 # v1.0.0 verification and boundaries
 
+Current stable is still `v1.0.0`. The later combined application was accepted,
+but publication is blocked by a release-tool dependency audit, not Android
+compilation. See [current update status and exact CI evidence](RELEASE_STATUS.md).
+The v1.0.0 evidence below is historical and does not certify that later release.
+
 Stable source release: [v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0).
 Input: original Google Maps `26.36.04.973607363` only. Output app/package options
 remain the original upstream defaults; source branding does not change them.
