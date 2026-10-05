@@ -26,7 +26,7 @@
           "version": "26.36.04.973607363"
         }
       ],
-      "expected_public_patches": 33,
+      "expected_public_patches": 34,
       "local_additions": [
         {
           "commit": "666135f8fccb6404bffba8a74d58c41d50309ebd",
@@ -48,10 +48,10 @@
           "purpose": "Wire native settings and heading corrections into the existing provider toggle without adding a public patch"
         },
         {
-          "commit": "e4e8582c3bc6ba47ac85ed88fcf560e067ae51e0",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
           "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/location/NativeHeadingPatch.kt",
-          "sha256": "6fc4bc040bb2d506d57869697cf66db78a6c7d9a48aedc1d2647d139454c356c",
-          "purpose": "Reuse the existing Android compass when Android location mode is selected; preserve the full stock Play orientation selector"
+          "sha256": "0b7152c590d22646a0d4dfeee6838f7441b7f2305031abc64def3647d5e5419d",
+          "purpose": "Retain native heading behavior; expose the existing exact-method-shape helper to the UI smoothing patch"
         },
         {
           "commit": "95fbc7394f6ab503e756f9165971acb6204249b3",
@@ -92,15 +92,92 @@
           ]
         },
         {
-          "commit": "8fb745a89530885abdc9c06171f620916bfa581b",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
           "path": "extensions/extension/src/main/java/org/ungoogled/ui/Shapes.java",
-          "sha256": "35321de5fc9833c307698731f21cfd3759314bc8b5fdf1b7ebd4c915b8ea3362",
-          "purpose": "Preserve enabled proxy intent and reject invalid endpoint settings",
+          "sha256": "e5f0af58d3304e6de0e52a651967a38be52be73472c4a1ca133cefef623fdaa5",
+          "purpose": "Restore exact pre-diagnostic production source; retain accepted settings and off-by-default location smoothing, remove Satellite diagnostics",
           "upstream_prs": [
             "https://github.com/bearinmindcat/morphe-patches/pull/14"
           ]
+        },
+        {
+          "path": "extensions/extension/src/main/java/org/ungoogled/ui/SettingsMenu.java",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "sha256": "9e795614336186aa2bb43f3db0efe5fd178c8ce7f6af9bc9bbd7c9fe71807a10",
+          "purpose": "Gear presentation only; all navigation, retained-dialog and animation overrides removed"
+        },
+        {
+          "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/account/HideSignInButtonPatch.kt",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "sha256": "9701906a89d5fa39db24b4e2678ffe8a9342910bd7c6f2379c0f6345e511971f",
+          "purpose": "Keep sign-in header GONE after asynchronous visibility rebinding"
+        },
+        {
+          "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/account/keepopen/KeepAccountSheetOpenPatch.kt",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "sha256": "1824f6587f982b2af58f5c4ec2f854e0c4f9dabbaf10869a9a37007835b30f27",
+          "purpose": "Restore original Settings return flag while retaining the settings gear dependency"
+        },
+        {
+          "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/account/keepopen/SettingsMenuPresentationPatch.kt",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "sha256": "3ff7a1c5c1dcdf2b3832f5d559b7f7fbb7d657b972d46449473f4c31aef9797c",
+          "purpose": "Native settings gear and accessibility label only; no motion or navigation hooks"
+        },
+        {
+          "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/ui/rectangle/RectangleShapesPatch.kt",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "sha256": "b86f38f30b205a044525b2f4709d142581a97db3ebc771f86274eabf2eedc547",
+          "purpose": "Retain optional square-corner patch, disabled at runtime by default"
+        },
+        {
+          "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/account/trim/Fingerprints.kt",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "sha256": "8cfb8f513eddaa86dd80fd343c5c7de9b2f3414a4391c9d99fd1027eb64e8fd8",
+          "purpose": "Pin legacy profile row bounds and the newer native profile metric/render loop"
+        },
+        {
+          "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/account/trim/TrimAccountMenuPatch.kt",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "sha256": "9738d0a95d3ebe91b8fd67d705c935f26e42cd61d813dc077735f5a25a3abe4f",
+          "purpose": "Remove profile from legacy lists and newer asynchronous OneGoogle rendering, preserving other rows and animations"
+        },
+        {
+          "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/location/SmoothLocationUpdatesPatch.kt",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "sha256": "379e136c05344c105de95d526705dddc38cac225ca078e4fae3608981e4329c7",
+          "purpose": "Exact-gated three-second display grace at the native My Location UI listener and both browse renderers"
+        },
+        {
+          "path": "extensions/extension/src/main/java/org/ungoogled/ui/LocationSmoothing.java",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "sha256": "731b8923a6b513a9031adcccfc8419f407ba350596c891bd6695bf6445be0d0f",
+          "purpose": "Off-by-default Android-source UI hold; bounded latest-event timeout, recovery cancellation and stock navigation/provider paths"
+        },
+        {
+          "path": "extensions/extension/src/main/java/org/ungoogled/ui/CustomizationActivity.java",
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "sha256": "9cd41de690e3c712b7e4f940ccaccb606fcc0109ca8f5e6877c4c8b7a56283a0",
+          "purpose": "Restore exact pre-diagnostic production source; retain accepted settings and off-by-default location smoothing, remove Satellite diagnostics"
+        },
+        {
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "path": "patches/src/main/kotlin/org/ungoogled/patches/maps/gms/GrapheneSearchCompatibilityPatch.kt",
+          "sha256": "4dce72a971aba802bac55a25a31f17e83f5424584fa55291822237e1bb4c7524",
+          "purpose": "Contain only the observed GrapheneOS asset-hook NullPointerException at the optional native min-mode probe; preserve all original results and unrelated failures"
+        },
+        {
+          "commit": "a10b7359d0f4d163304c3740ff7e45c9298f36ba",
+          "path": "extensions/extension/src/main/java/org/ungoogled/ui/MinModeCompatibility.java",
+          "sha256": "c109353565007c3f4de627204d02eb001768a9934564b38505920167b3e37681",
+          "purpose": "Contain only the observed GrapheneOS asset-hook NullPointerException at the optional native min-mode probe; preserve all original results and unrelated failures"
         }
-      ]
+      ],
+      "release_selection": {
+        "expected_patches": 34,
+        "omitted_source": "patches/src/main/kotlin/org/ungoogled/patches/maps/ui/black/BlackThemePatch.kt",
+        "reason": "Publish the maintainer-accepted no-Black runtime without Satellite diagnostics or experimental restoration"
+      }
     }
   ],
   "infrastructure": {

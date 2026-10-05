@@ -16,6 +16,15 @@ The repository preserves the original public Git ancestry and original source
 copyright. Our README, maintenance contract and publication policy describe this
 modified derivative honestly rather than replacing authorship.
 
+## Accepted follow-up changes
+
+The accepted settings cleanup, optional location smoothing and narrow GrapheneOS
+search compatibility correction are promoted as one reviewed net-change commit.
+The original public ancestry and upstream notices remain intact; private
+investigation history and raw device logs are not published. Current source hashes
+and public commits are pinned in `upstreams.json`. Black theme source is retained
+for provenance but excluded from the release build to match the accepted selection.
+
 ## Infrastructure
 
 MorpheApp's patcher, Gradle plugin, official patches template and Semantic Release

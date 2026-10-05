@@ -14,19 +14,24 @@ or upstream-author release. Original developers retain their authorship.
 
 | Application | Original version | Current scope |
 |---|---|---|
-| Google Maps → Maps | `26.36.04.973607363` | Reviewed upstream base with identity, native location/heading, import/privacy/proxy and system-Cronet corrections: 33 patches |
+| Google Maps → Maps | `26.36.04.973607363` | Accepted no-Black selection with settings cleanup, optional location smoothing and GrapheneOS search compatibility: 34 patches |
 
 Yandex applications and other patch families are not included yet.
 An application version is supported only after it has been identified and tested;
 there is no promise that a newer APK will work.
 
-Stable **v1.1.0** includes the [personal Maps identity](docs/MAPS_IDENTITY.md),
-[native My Location completion](docs/NATIVE_RECENTER.md),
-[native heading selection](docs/NATIVE_HEADING.md), and
-[safe import/photo/proxy corrections](docs/PR_SAFETY_CANDIDATE.md).
-The maintainer tested the combined candidate and approved stable publication.
-The generated catalog below is maintained by the release workflow; exact published
-version and artifact evidence are recorded in [Verification](docs/VERIFICATION.md).
+The accepted update adds a targeted [GrapheneOS search compatibility fix](docs/SEARCH_CRASH_FIX.md),
+cleaner settings/account navigation and optional **Smooth location updates**
+(OFF by default). It retains [personal Maps identity](docs/MAPS_IDENTITY.md),
+[native My Location](docs/NATIVE_RECENTER.md), [native heading](docs/NATIVE_HEADING.md),
+and [safe import/photo/proxy behavior](docs/PR_SAFETY_CANDIDATE.md).
+Black theme and Satellite diagnostic/experimental patches are excluded.
+**Satellite startup imagery remains unresolved**; keep Start app in satellite view
+OFF if affected. Manual Satellite remains available.
+
+The maintainer accepted the candidate and approved stable publication.
+The generated catalog below identifies the published version; exact artifact
+verification is recorded in [Verification](docs/VERIFICATION.md).
 
 Default app name is **Maps**, installed separately as `io.github.dvredin.maps`.
 It stays on the original Maps card in Manager 1.33.0 without a new Clone card;
@@ -34,11 +39,10 @@ historical installs are retained. Update the same package with the same Manager
 signing key. Changing from older Ungoogled Maps packages does not migrate data
 or signing identity automatically: preserve the old app and use normal backup/import.
 
-The [active backlog is empty](docs/BACKLOG.md): the maintainer withdrew both
-selected-location nearby search and theme persistence after reporting that they
-already work in the current application. No additional correction was added for
-either request. The separate
-[startup investigation](docs/COLD_START.md) stays deferred; no startup fix is claimed.
+The [backlog](docs/BACKLOG.md) keeps selected-location nearby search and theme
+persistence out of scope: the maintainer reported them already working.
+The separate [startup investigation](docs/COLD_START.md) remains unresolved;
+no Satellite startup fix is claimed.
 
 <!-- PATCHES_START -->
 > **[v1.1.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.1.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total

@@ -1,6 +1,24 @@
 # Published release verification and boundaries
 
-## Current stable v1.1.0
+## Accepted Maps update
+
+The maintainer accepted the current no-Black candidate and explicitly authorized
+stable publication. The runtime includes the targeted [GrapheneOS search fix](SEARCH_CRASH_FIX.md),
+accepted settings/profile cleanup with original transitions, and optional
+**Smooth location updates** (OFF by default). The release catalog contains
+**34 patches**. Black theme, Satellite diagnostics and experimental Satellite
+restoration are not shipped. Satellite startup imagery remains unresolved;
+manual Satellite is retained and startup OFF remains the recommended workaround.
+
+Local acceptance evidence: 51 extension tests, 29 repository regressions, controlled
+ART baseline/fixed checks, ordinary search/upgrade checks and maintainer feedback.
+The accepted-source manifest guards exact runtime continuity; clean release history
+contains the reviewed net changes rather than private diagnostic sessions.
+Official compilation, remote artifact readback and Manager source update are
+publication gates, not implied by this acceptance statement.
+
+
+## Previous stable v1.1.0
 
 Stable [v1.1.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.1.0)
 is published, not a prerelease or local candidate. The maintainer accepted the

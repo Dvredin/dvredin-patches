@@ -1,12 +1,14 @@
 # Maps backlog
 
-There are **no active maintainer-selected backlog items**. Both requests below
-were withdrawn after the maintainer confirmed that the existing application
-already provides the requested behavior. No additional implementation, automatic
-worker, issue creation or release is scheduled or authorized.
+## Accepted release scope
 
-The published stable source remains **v1.1.0**; this documentation-only closeout
-does not modify its patches or artifact.
+The maintainer accepted the targeted [GrapheneOS search fix](SEARCH_CRASH_FIX.md)
+and authorized stable publication of the complete tested no-Black candidate.
+Publication is in progress through the existing maintained release workflow;
+[release status](RELEASE_STATUS.md) and [verification](VERIFICATION.md) record its outcome.
+Satellite startup remains unresolved; no retry/toggle/renderer experiment is included.
+The withdrawn requests below remain out of scope; no upstream issue is closed.
+
 
 ## Withdrawn requests
 
