@@ -1,0 +1,1 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="io.github.dvredin.maps.minmodeartqa"><uses-sdk android:minSdkVersion="32" android:targetSdkVersion="36"/><application android:label="MinMode ART QA" android:hasCode="true"/><instrumentation android:name="qa.MinModeArtRunner" android:targetPackage="io.github.dvredin.maps.recenterqa"/></manifest>

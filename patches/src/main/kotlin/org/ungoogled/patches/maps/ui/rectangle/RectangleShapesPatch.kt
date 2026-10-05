@@ -77,7 +77,7 @@ private val rectangleShapesResourcePatch = resourcePatch(
 @Suppress("unused")
 val rectangleShapesPatch = bytecodePatch(
     name = "Rectangle shapes",
-    description = "Squares off rounded corners across the UI, including the two round navigation buttons.",
+    description = "Optional square corners across the UI, including navigation buttons. Off by default; enable in Customization.",
     default = true,
 ) {
     compatibleWith(COMPATIBILITY_MAPS)

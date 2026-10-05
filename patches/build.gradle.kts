@@ -1,5 +1,11 @@
 group = "org.ungoogled"
 
+// Publish the same no-Black selection accepted in the local candidate.
+// Keep the upstream source for provenance; do not offer it in this release catalog.
+kotlin.sourceSets.named("main") {
+    kotlin.exclude("org/ungoogled/patches/maps/ui/black/BlackThemePatch.kt")
+}
+
 patches {
     about {
         name = "Dvredin Patches"

@@ -110,18 +110,17 @@ private object SettingsRowClickFingerprint : Fingerprint(
 @Suppress("unused")
 val keepAccountSheetOpenPatch = bytecodePatch(
     name = "Keep account sheet open",
-    description = "Returning from Settings or Customization, or tapping \"Your profile\", " +
-        "leaves the account sheet open instead of dropping back to the map.",
+    description = "Shows a settings gear and retains the original return behavior for Settings and Customization.",
     default = true,
 ) {
     compatibleWith(COMPATIBILITY_MAPS)
-    dependsOn(sharedExtensionPatch, accountSheetNoDismissPatch)
+    dependsOn(sharedExtensionPatch, accountSheetNoDismissPatch, settingsMenuPresentationPatch)
 
     execute {
         // Remember the sheet's shower every time it opens, so it can be re-shown.
         AccountMenuShowerFingerprint.method.addInstructions(0, "sput-object p0, $SHAPES->MENU:Ljava/lang/Object;")
 
-        // Report every fragment destroy; Shapes re-shows the sheet when the Settings page goes away.
+        // Original behavior: report every fragment destroy to Shapes.
         FragmentOnDestroyFingerprint.method.addInstructions(0, "invoke-static { p0 }, $SHAPES->fragmentDestroyed(Ljava/lang/Object;)V")
 
         // The Settings row asks for the sheet back. At the case's own label, so the switch reaches it.

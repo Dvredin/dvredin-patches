@@ -2,9 +2,12 @@ package org.ungoogled.patches.maps.account.trim
 
 import app.morphe.patcher.Fingerprint
 import app.morphe.patcher.InstructionLocation.MatchAfterImmediately
+import app.morphe.patcher.checkCast
 import app.morphe.patcher.fieldAccess
+import app.morphe.patcher.literal
 import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
+import app.morphe.patcher.string
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
@@ -91,15 +94,46 @@ internal object LegacySettingsRowAddFingerprint : Fingerprint(
     ),
 )
 
-/** Legacy: Your profile's own row-add (kept, start) .. Offline maps' own call (kept, end). */
+/** Legacy: custom-list constructor (kept) .. profile and other account rows .. Offline maps (kept). */
 internal object LegacyYourProfileFingerprint : Fingerprint(
+    definingClass = "Lolu;",
     name = "a",
     parameters = listOf("Z"),
     returnType = "Lbrfb;",
     filters = listOf(
+        string("CustomActionSpecProvider.getCustomActions"),
+        methodCall(definingClass = "Lbwxy;", name = "<init>", opcode = Opcode.INVOKE_DIRECT, parameters = listOf("I")),
+        methodCall(definingClass = "Lbrmu;", name = "b", opcode = Opcode.INVOKE_STATIC, location = MatchAfterImmediately()),
+        literal(2132026353), // supported input's Your profile string
         methodCall(definingClass = "Lbrmt;", name = "a", opcode = Opcode.INVOKE_VIRTUAL),
         opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
         methodCall(definingClass = "Lbwxy;", name = "i", opcode = Opcode.INVOKE_VIRTUAL, location = MatchAfterImmediately()),
         methodCall(definingClass = "Lolr;", name = "e", opcode = Opcode.INVOKE_VIRTUAL),
+    ),
+)
+
+/** The newer OneGoogle action renderer is separate from both legacy-list builders. */
+internal object ProfileActionRendererFingerprint : Fingerprint(
+    definingClass = "Lbriv;",
+    name = "a",
+    parameters = listOf("Ljava/lang/Object;", "Lcuib;"),
+    returnType = "Ljava/lang/Object;",
+    filters = listOf(
+        checkCast("Lcmia;"),
+        fieldAccess(opcode = Opcode.IGET_OBJECT, definingClass = "Lbuge;", name = "b", location = MatchAfterImmediately()),
+    ),
+)
+
+/** Pin the profile-specific metric, never a translated visible title. */
+internal object ProfileActionProviderFingerprint : Fingerprint(
+    definingClass = "Loyi;",
+    name = "c",
+    parameters = listOf("Lcmht;", "Lcmiq;"),
+    returnType = "Lcmia;",
+    filters = listOf(
+        literal(2132026353),
+        fieldAccess(opcode = Opcode.SGET_OBJECT, definingClass = "Lcpdc;", name = "e"),
+        checkCast("Lcpco;", location = MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IGET, definingClass = "Lcpco;", name = "a", location = MatchAfterImmediately()),
     ),
 )

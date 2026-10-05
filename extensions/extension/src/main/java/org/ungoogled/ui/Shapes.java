@@ -78,6 +78,7 @@ public final class Shapes {
     public static boolean hideExplorePatched() { return false; }
     public static boolean hideTabsPatched() { return false; }
     public static boolean locationSourcePatched() { return false; }
+    public static boolean locationSmoothingPatched() { return false; }
     public static boolean proxyPatched() { return false; }
     public static boolean betterOfflinePatched() { return false; }
     public static boolean powerSavingPatched() { return false; }
@@ -88,7 +89,7 @@ public final class Shapes {
     public static boolean playLocationByDefault() { return false; }
 
     /** Cached toggle state; refreshed by wrap() at every Activity attach. */
-    public static volatile boolean RECT = rectShapesPatched();
+    public static volatile boolean RECT = false;
     public static volatile boolean BLACK = blackThemePatched();
     /** Read from patched Maps code as plain static fields. */
     public static volatile boolean HIDE_ADS = hideAdsPatched();
@@ -141,8 +142,12 @@ public final class Shapes {
         return c.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
     }
 
+    static boolean rectangleChoice(Context c) {
+        return prefs(c).getBoolean(KEY_RECT, false);
+    }
+
     public static boolean enabled(Context c) {
-        return rectShapesPatched() && prefs(c).getBoolean(KEY_RECT, true);
+        return rectShapesPatched() && rectangleChoice(c);
     }
 
     public static void setEnabled(Context c, boolean on) {
@@ -174,6 +179,7 @@ public final class Shapes {
     public static void processStart(Context c) {
         try {
             refreshPlayLocation(c);
+            LocationSmoothing.refresh(c);
             applyProxy(c);
         } catch (Throwable ignored) {}
     }
@@ -548,6 +554,7 @@ public final class Shapes {
             BETTER_OFFLINE = betterOfflineEnabled(base);
             NAV_ZOOM_BUTTONS = navZoomEnabled(base);
             refreshPlayLocation(base);
+            LocationSmoothing.refresh(base);
             applyProxy(base);
             if (lastBottom <= 0) loadPlacement(base);
             startPopupTicker();

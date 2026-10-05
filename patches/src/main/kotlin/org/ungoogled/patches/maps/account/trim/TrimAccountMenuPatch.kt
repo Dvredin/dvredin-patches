@@ -1,8 +1,13 @@
 package org.ungoogled.patches.maps.account.trim
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.morphe.patcher.extensions.InstructionExtensions.removeInstructions
 import app.morphe.patcher.patch.PatchException
+import app.morphe.patcher.util.smali.ExternalLabel
 import app.morphe.patcher.util.proxy.mutableTypes.MutableMethod
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import app.morphe.patcher.patch.bytecodePatch
@@ -42,7 +47,7 @@ private fun MutableMethod.removeWholeRows(start: Int, end: Int, what: String) {
 @Suppress("unused")
 val trimAccountMenuPatch = bytecodePatch(
     name = "Trim account menu",
-    description = "Removes Your Timeline, Location sharing, Your data in Maps and Help & feedback " +
+    description = "Removes Your profile, Your Timeline, Location sharing, Your data in Maps and Help & feedback " +
         "from the account sheet.",
     default = true,
 ) {
@@ -83,11 +88,43 @@ val trimAccountMenuPatch = bytecodePatch(
         }
         LegacyYourProfileFingerprint.let { fp ->
             val m = fp.instructionMatches
-            val start = m[2].index + 1 // right after Your profile's own row-add
+            val start = m[1].index + 1 // after the custom-list constructor; include Your profile
             // Legacy rows call straight through a typed register -- no setup
             // instructions -- so the kept row starts AT its own call.
             val end = m.last().index
-            fp.method.removeWholeRows(start, end, "legacy Your-profile")
+            fp.method.removeWholeRows(start, end, "legacy profile/account rows")
+        }
+
+        // The async OneGoogle renderer supplies profile independently of those
+        // lists. Skip its metric before creating a row; native empty-stack handling
+        // removes spacing. Do not change the action flows, Views or animations.
+        ProfileActionProviderFingerprint.instructionMatches
+        ProfileActionRendererFingerprint.let { fp ->
+            val method = fp.method
+            val instructions = method.implementation!!.instructions
+            val cast = fp.instructionMatches.first().index
+            if (method.implementation!!.registerCount != 29 ||
+                (instructions[cast] as OneRegisterInstruction).registerA != 8 ||
+                instructions[cast - 1].opcode != Opcode.NEW_INSTANCE) {
+                throw PatchException("Profile action renderer register shape changed")
+            }
+            val loop = instructions.take(cast).indexOfLast {
+                val ref = (it as? ReferenceInstruction)?.reference as? MethodReference
+                it.opcode == Opcode.INVOKE_INTERFACE && ref?.definingClass == "Ljava/util/Iterator;" &&
+                    ref.name == "hasNext" && (it as Instruction35c).registerC == 5
+            }
+            if (loop < 0 || instructions[loop + 1].opcode != Opcode.MOVE_RESULT ||
+                (instructions[loop + 1] as OneRegisterInstruction).registerA != 8) {
+                throw PatchException("Profile action renderer loop changed")
+            }
+            // v12/v14 are assigned later in kept rows, never iterator/loop state.
+            method.addInstructionsWithLabels(cast + 1, """
+                iget v12, v8, Lcmia;->d:I
+                sget-object v14, Lcpdc;->e:Lbyfp;
+                check-cast v14, Lcpco;
+                iget v14, v14, Lcpco;->a:I
+                if-eq v12, v14, :next_action
+            """, ExternalLabel("next_action", instructions[loop]))
         }
     }
 }

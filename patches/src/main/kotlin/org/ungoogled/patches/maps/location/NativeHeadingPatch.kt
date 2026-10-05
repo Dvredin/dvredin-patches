@@ -44,7 +44,7 @@ internal val nativeHeadingPatch = bytecodePatch {
 }
 
 /** Fail closed on a changed body, signature layout, or overlapping correction. */
-private fun headingShape(method: Method): String {
+internal fun headingShape(method: Method): String {
     val implementation = method.implementation!!
     val shape = buildString {
         append(method.accessFlags).append(':').append(implementation.registerCount).append('\n')

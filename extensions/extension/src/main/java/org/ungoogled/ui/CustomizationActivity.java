@@ -218,6 +218,15 @@ public final class CustomizationActivity extends Activity {
             body.addView(locRow);
         }
 
+        if (Shapes.locationSmoothingPatched()) {
+            Switch smooth = new Switch(this);
+            smooth.setChecked(LocationSmoothing.enabled(this));
+            body.addView(toggleRow("Smooth location updates",
+                    "Android API: holds the last precise position for up to 3 seconds when accuracy drops", smooth));
+            smooth.setOnCheckedChangeListener((CompoundButton b, boolean on) ->
+                    LocationSmoothing.setEnabled(this, on));
+        }
+
         if (Shapes.proxyPatched()) {
             // its own screen (Enable / Host / Port), like OsmAnd's
             LinearLayout proxyRow = rowBase("Proxy", proxySummary());
