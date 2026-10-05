@@ -45,9 +45,9 @@ The separate [startup investigation](docs/COLD_START.md) remains unresolved;
 no Satellite startup fix is claimed.
 
 <!-- PATCHES_START -->
-> **[v1.1.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.1.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;33 patches total
+> **[v1.2.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.2.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;34 patches total
 <details>
-<summary><img src="docs/icons/pin-google.png" width="20" height="20" align="top"> Google Maps&nbsp;&nbsp;-&gt;&nbsp;&nbsp;<img src="docs/icons/pin-ungoogled.png" width="20" height="20" align="top"> Maps&nbsp;&nbsp;•&nbsp;&nbsp;33 patches</summary>
+<summary><img src="docs/icons/pin-google.png" width="20" height="20" align="top"> Google Maps&nbsp;&nbsp;-&gt;&nbsp;&nbsp;<img src="docs/icons/pin-ungoogled.png" width="20" height="20" align="top"> Maps&nbsp;&nbsp;•&nbsp;&nbsp;34 patches</summary>
 <br>
 
 <p>
@@ -64,19 +64,19 @@ no Satellite startup fix is claimed.
 |----------|----------------|-----------|
 | 120 refresh rate | Lifts the 60 Hz limit Maps puts on itself, on the app and on the map, so it can run at your screen's full refresh rate (such as 120 Hz). Uses more battery, most of all while navigating. Off by default: switch it on on the Customization screen. |  |
 | Better offline maps | Reworks the offline area picker: zooming out really selects more instead of being shrunk to Google's size cap, the box can be resized by dragging its edges and corners, a large area is split into several downloads whose true total size is shown, and areas already downloaded are drawn on the map. Can be turned off on the Customization screen. |  |
-| Black theme | AMOLED-black theme. Pins Maps' own dark mode and its separate navigation colour scheme, and remaps colour resources, drawable fills and draw-time paints so no surface is left grey. |  |
 | Blue pin | Chromium-coloured flat map pin on every in-app product logo and the search bar's leading icon. |  |
 | Bypass Play Services checks | Makes Maps' bundled Play services signature and availability checks always pass, so it runs re-signed and with Play services disabled or absent. |  |
 | Change app name | Sets the launcher and in-app app name. | • App name |
 | Customization screen | Adds a Customization row under Settings on the account sheet, with switches for the patches here that can be turned back off inside the app. Also applies Trim account menu, whose freed row builder it takes over. |  |
+| Fix GrapheneOS search crash | Keeps search working when GrapheneOS's Google Play asset hook fails during the optional native power-saving capability check. Unrelated exceptions are not hidden. |  |
 | Hide ads | Hides promoted map pins and "Sponsored" search result rows. |  |
 | Hide explore feed | Hides the home tab's Explore feed sheet ("Local vibe"). Can be switched back on on the Customization screen. |  |
 | Hide login promo | Hides the full-screen "Make it your map" page shown on first launch. |  |
 | Hide navigation tabs | Hides the Explore / Contribute / You strip at the bottom of the home screen. Can be switched back on on the Customization screen. |  |
 | Hide section title | Removes the "More from this app" label from the account sheet. |  |
-| Hide sign-in button | Removes the "Sign in" pill from the account sheet. |  |
+| Hide sign-in button | Removes the account sheet's sign-in pill and keeps it hidden when the header rebinds. |  |
 | Hide suggestions | Hides the row of businesses under an address on its place sheet: a preview of the address's Directory (the restaurants, shops and offices at that address). The Directory button still lists them. Can be switched off on the Customization screen. |  |
-| Keep account sheet open | Returning from Settings or Customization, or tapping "Your profile", leaves the account sheet open instead of dropping back to the map. |  |
+| Keep account sheet open | Shows a settings gear and retains the original return behavior for Settings and Customization. |  |
 | Legacy icon | Uses the flat multicolour pin Maps had before the 2025 gradient icon as the launcher icon. |  |
 | Location provider toggle | Adds a Location source choice to the Customization screen: Android's own location providers, or Google Play services' fused provider. With Android, Play services is never asked for a location. Play services is never used while it is missing or disabled, so location keeps working on phones without it. | • Default to Play services location |
 | Maps identity | Installs Maps under a separate personal package while tracking it on the original Maps card in Morphe Manager 1.33. Existing tracked clones are retained. | • Maps package |
@@ -85,13 +85,14 @@ no Satellite startup fix is claimed.
 | Offline timeline | Adds a Timeline to the Local saved screen: a record of where the phone has been, grouped into days and visits, kept only on the phone, with GPX export. Recording is off until switched on there; it shows a notification while it runs. |  |
 | Power saving mode | Brings the Pixel-only power saving mode to every phone: while driving with navigation, press the power button and Maps shows only key information such as the next turn on a black screen. Turn it on or off in Settings > Navigation > Power saving mode. Pixels that have it built in keep Google's own version unless Customization > Power saving mode is turned on. |  |
 | Proxy | Adds a Proxy screen to Customization that sends Maps' own traffic, map data included, through an HTTP proxy -- for example Orbot's (127.0.0.1:8118) to use Tor. Map data never falls back to a direct connection: if the proxy stops, Maps stops loading. Needs a recent Play services network engine (Cronet); Maps warns when it cannot take the proxy. |  |
-| Rectangle shapes | Squares off rounded corners across the UI, including the two round navigation buttons. |  |
+| Rectangle shapes | Optional square corners across the UI, including navigation buttons. Off by default; enable in Customization. |  |
 | Remove permissions | Removes permissions that only serve Google-account features or Google's data collection: background location, physical activity, contacts, microphone (voice search stops working), camera (Lens and Live View stop working), car speed, advertising ID, push messages and Google services settings. |  |
 | Remove sign-in promo | Removes the "Tired of typing?" sign-in card from the search screen. |  |
 | Remove telemetry | Points the Firebase Installations and Play services compliance check-ins at an unresolvable host, stops every ad impression and click ping from being sent, and deregisters Google's logging, performance-monitoring, survey and Location History libraries and the on-device federated-learning services. |  |
 | Restore map data | Lets a re-signed Maps load tiles, search and routing, by sending Google's own package and certificate in the identity headers the Maps backend checks, and by degrading instead of crashing when Play services rejects the re-signed app -- including skipping a view property that fails for that reason instead of crashing the screen. |  |
 | Sign-in toast | The "Sign in" pill shows a "Can't sign in" toast instead of failing silently. |  |
-| Trim account menu | Removes Your Timeline, Location sharing, Your data in Maps and Help & feedback from the account sheet. |  |
+| Smooth location updates | Adds an off-by-default Customization switch for Android API location. Holds the last precise blue-dot position and accuracy circle for up to 3 seconds when accuracy suddenly drops, then resumes Maps' own animation. Does not filter navigation or recorded locations. |  |
+| Trim account menu | Removes Your profile, Your Timeline, Location sharing, Your data in Maps and Help & feedback from the account sheet. |  |
 | Use system Cronet fallback | Prefers Android's system HttpEngine when Maps falls back to Java Cronet. Keeps working Play services engines and the original fallback when the system provider is unavailable or an app proxy is configured. |  |
 | Your profile toast | Tapping "Your profile" shows a "Can't sign in" toast instead of opening nothing. |  |
 | Zoom controls in navigation | Adds +, − and reset tiles during turn-by-turn that change the navigation zoom while the camera keeps following the car. |  |

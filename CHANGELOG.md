@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/Dvredin/dvredin-patches/compare/v1.1.0...v1.2.0) (2026-10-05)
+
+### ✨ New Features
+
+* **maps:** promote accepted settings, smoothing and search compatibility ([a10b735](https://github.com/Dvredin/dvredin-patches/commit/a10b7359d0f4d163304c3740ff7e45c9298f36ba))
+
 ## [1.1.0](https://github.com/Dvredin/dvredin-patches/compare/v1.0.0...v1.1.0) (2026-10-03)
 
 ### 🐛 Bug Fixes

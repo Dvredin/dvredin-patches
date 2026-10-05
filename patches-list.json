@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "patches": [
     {
       "name": "120 refresh rate",
@@ -40,38 +40,6 @@
       "dependencies": [
         "BytecodePatch",
         "BytecodePatch"
-      ],
-      "compatiblePackages": [
-        {
-          "packageName": "com.google.android.apps.maps",
-          "name": "Google Maps",
-          "description": null,
-          "apkFileType": "APKM",
-          "appIconColor": "#FFFFFF",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "26.36.04.973607363",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Black theme",
-      "description": "AMOLED-black theme. Pins Maps' own dark mode and its separate navigation colour scheme, and remaps colour resources, drawable fills and draw-time paints so no surface is left grey.",
-      "default": true,
-      "category": null,
-      "dependencies": [
-        "BytecodePatch",
-        "BytecodePatch",
-        "BytecodePatch",
-        "ResourcePatch"
       ],
       "compatiblePackages": [
         {
@@ -195,6 +163,35 @@
         "BytecodePatch",
         "BytecodePatch",
         "ResourcePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.maps",
+          "name": "Google Maps",
+          "description": null,
+          "apkFileType": "APKM",
+          "appIconColor": "#FFFFFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "26.36.04.973607363",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Fix GrapheneOS search crash",
+      "description": "Keeps search working when GrapheneOS's Google Play asset hook fails during the optional native power-saving capability check. Unrelated exceptions are not hidden.",
+      "default": true,
+      "category": null,
+      "dependencies": [
+        "BytecodePatch"
       ],
       "compatiblePackages": [
         {
@@ -363,7 +360,7 @@
     },
     {
       "name": "Hide sign-in button",
-      "description": "Removes the \"Sign in\" pill from the account sheet.",
+      "description": "Removes the account sheet's sign-in pill and keeps it hidden when the header rebinds.",
       "default": true,
       "category": null,
       "dependencies": [],
@@ -420,10 +417,11 @@
     },
     {
       "name": "Keep account sheet open",
-      "description": "Returning from Settings or Customization, or tapping \"Your profile\", leaves the account sheet open instead of dropping back to the map.",
+      "description": "Shows a settings gear and retains the original return behavior for Settings and Customization.",
       "default": true,
       "category": null,
       "dependencies": [
+        "BytecodePatch",
         "BytecodePatch",
         "BytecodePatch"
       ],
@@ -708,7 +706,7 @@
     },
     {
       "name": "Rectangle shapes",
-      "description": "Squares off rounded corners across the UI, including the two round navigation buttons.",
+      "description": "Optional square corners across the UI, including navigation buttons. Off by default; enable in Customization.",
       "default": true,
       "category": null,
       "dependencies": [
@@ -876,8 +874,39 @@
       "options": []
     },
     {
+      "name": "Smooth location updates",
+      "description": "Adds an off-by-default Customization switch for Android API location. Holds the last precise blue-dot position and accuracy circle for up to 3 seconds when accuracy suddenly drops, then resumes Maps' own animation. Does not filter navigation or recorded locations.",
+      "default": true,
+      "category": null,
+      "dependencies": [
+        "BytecodePatch",
+        "BytecodePatch",
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.google.android.apps.maps",
+          "name": "Google Maps",
+          "description": null,
+          "apkFileType": "APKM",
+          "appIconColor": "#FFFFFF",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "26.36.04.973607363",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
       "name": "Trim account menu",
-      "description": "Removes Your Timeline, Location sharing, Your data in Maps and Help & feedback from the account sheet.",
+      "description": "Removes Your profile, Your Timeline, Location sharing, Your data in Maps and Help & feedback from the account sheet.",
       "default": true,
       "category": null,
       "dependencies": [],
