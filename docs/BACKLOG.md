@@ -4,8 +4,9 @@
 
 The maintainer accepted the targeted [GrapheneOS search fix](SEARCH_CRASH_FIX.md)
 and authorized stable publication of the complete tested no-Black candidate.
-Publication is in progress through the existing maintained release workflow;
-[release status](RELEASE_STATUS.md) and [verification](VERIFICATION.md) record its outcome.
+Stable v1.2.0 is published after the explicitly authorized recovery;
+[release status](RELEASE_STATUS.md) and [verification](VERIFICATION.md) record the
+successful artifact and actual Manager remote-update gates.
 Satellite startup remains unresolved; no retry/toggle/renderer experiment is included.
 The withdrawn requests below remain out of scope; no upstream issue is closed.
 

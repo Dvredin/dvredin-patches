@@ -1,6 +1,6 @@
 # Published release verification and boundaries
 
-## Accepted Maps update
+## Current stable v1.2.0
 
 The maintainer accepted the current no-Black candidate and explicitly authorized
 stable publication. The runtime includes the targeted [GrapheneOS search fix](SEARCH_CRASH_FIX.md),
@@ -14,8 +14,40 @@ Local acceptance evidence: 51 extension tests, 29 repository regressions, contro
 ART baseline/fixed checks, ordinary search/upgrade checks and maintainer feedback.
 The accepted-source manifest guards exact runtime continuity; clean release history
 contains the reviewed net changes rather than private diagnostic sessions.
-Official compilation, remote artifact readback and Manager source update are
-publication gates, not implied by this acceptance statement.
+Stable [v1.2.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.2.0)
+is published, not a draft or prerelease. The original Semantic Release attempt
+created its tag before GitHub rejected the channel-note push. After explicit
+recovery approval, the guarded [recovery workflow](PUBLISHING.md) completed as
+[run 37388960475](https://github.com/Dvredin/dvredin-patches/actions/runs/37388960475).
+The tag was not moved, no new version was invented and no published asset replaced.
+
+- Original immutable source/tag: `f529a1366af9242bab3b658ffd3d0e3435fbd022`.
+- Fresh maintained Gradle Android build, source/behavior regressions, frozen
+  dependency installation, security regressions and ordinary audit passed.
+  Recovery guards have 12 focused failure/idempotency regressions. The catalog
+  presentation test now reads the actual generated count instead of assuming 33.
+- Published asset `patches-1.2.0.mpp`: **578652 bytes**, SHA-256
+  `e6c5020e2ad53098ccdf5caef5515e9bb739333e42d32d48ccc2c01709fc2caa`.
+  An unauthenticated download matches the GitHub uploaded-asset size/digest.
+- Every **125 executable class/DEX/extension entry** is byte-identical to the
+  accepted official CI candidate. Only the top-level bundle manifest differs
+  (version/timestamp). That candidate passed actual 34/34 patch application and
+  the accepted runtime/closed-code equivalence gates. GPL/NOTICE and source
+  references remain; no application APK, key or private diagnostic payload shipped.
+- Remote generated catalog has 34 patches including **Fix GrapheneOS search crash**,
+  excluding Black/diagnostics. Its download URL resolves to the exact verified asset.
+- Provenance attestation generation passed and its remote statement names the
+  published SHA-256. The missing default-channel git note was restored and read
+  back. Independent local cryptographic verification of the attestation is not claimed.
+- Actual Manager Remote source **1.1.0 to 1.2.0** update passed on a dedicated Pixel:
+  34 patches, one app, nine sources retained, Disabled and prerelease OFF preserved.
+  Cold Home remained foreground with a stable PID and no relevant fatal/duplicate-key
+  exception. Temporary device settings were restored and the device put to sleep.
+
+This recovery did not change Maps runtime, signing options or security settings,
+and did not repeat full app patch/sign/install on the owner's phone. Primary-device
+acceptance is the owner's local.16 report; the official bundle's executable parity
+connects it to the tested candidate. Satellite startup remains separately unresolved.
 
 
 ## Previous stable v1.1.0

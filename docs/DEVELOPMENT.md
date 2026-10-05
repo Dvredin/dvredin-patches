@@ -1,6 +1,6 @@
 # Development and verification
 
-## Accepted Maps update
+## Current stable v1.2.0
 
 The maintainer accepted the current no-Black candidate and explicitly authorized
 stable publication. The runtime includes the targeted [GrapheneOS search fix](SEARCH_CRASH_FIX.md),
@@ -14,8 +14,12 @@ Local acceptance evidence: 51 extension tests, 29 repository regressions, contro
 ART baseline/fixed checks, ordinary search/upgrade checks and maintainer feedback.
 The accepted-source manifest guards exact runtime continuity; clean release history
 contains the reviewed net changes rather than private diagnostic sessions.
-Official compilation, remote artifact readback and Manager source update are
-publication gates, not implied by this acceptance statement.
+Stable [v1.2.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.2.0)
+is published and independently read back. The maintainer accepted the search-fix
+candidate and explicitly authorized both publication and recovery of the interrupted
+release. The original tag/commit was preserved. Official build, source/behavior and
+dependency gates, provenance attestation and the actual Manager Remote **1.1.0 to
+1.2.0** update passed. See [Verification](VERIFICATION.md) for artifact evidence.
 
 
 ## Architecture and scope

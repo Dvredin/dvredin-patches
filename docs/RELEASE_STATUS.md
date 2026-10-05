@@ -1,6 +1,6 @@
 # Combined Maps update — publication status
 
-## Accepted Maps update
+## Current stable v1.2.0
 
 The maintainer accepted the current no-Black candidate and explicitly authorized
 stable publication. The runtime includes the targeted [GrapheneOS search fix](SEARCH_CRASH_FIX.md),
@@ -14,9 +14,15 @@ Local acceptance evidence: 51 extension tests, 29 repository regressions, contro
 ART baseline/fixed checks, ordinary search/upgrade checks and maintainer feedback.
 The accepted-source manifest guards exact runtime continuity; clean release history
 contains the reviewed net changes rather than private diagnostic sessions.
-Official compilation, remote artifact readback and Manager source update are
-publication gates, not implied by this acceptance statement.
+Stable [v1.2.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.2.0)
+is published and independently read back. The maintainer accepted the search-fix
+candidate and explicitly authorized both publication and recovery of the interrupted
+release. The original tag/commit was preserved. Official build, source/behavior and
+dependency gates, provenance attestation and the actual Manager Remote **1.1.0 to
+1.2.0** update passed. See [Verification](VERIFICATION.md) for artifact evidence.
 
+
+## Historical stable v1.1.0
 
 The maintainer accepted the application built from `1.1.0-dev.local.4` and
 explicitly approved publishing the current changes and updating documentation.
@@ -64,9 +70,9 @@ There is no automatic stable promotion or background release executor.
 
 ## Accepted scope and deferred work
 
-The accepted source retains Maps identity, native recenter, native heading and
-system-Cronet PR #16; it adopts safe-import/photo/proxy PR #12/#13/#14. It still
-contains 33 public patches for original Google Maps `26.36.04.973607363` only.
+The current source retains Maps identity, native recenter, native heading and
+system-Cronet PR #16, safe-import/photo/proxy PR #12/#13/#14, and the accepted
+search/settings/smoothing update. It contains 34 public patches for original Google Maps `26.36.04.973607363` only.
 No upstream merge or whole-app network firewall is claimed.
 
 The maintainer withdrew selected-location nearby search (#1) and theme persistence

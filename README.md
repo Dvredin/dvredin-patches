@@ -20,7 +20,7 @@ Yandex applications and other patch families are not included yet.
 An application version is supported only after it has been identified and tested;
 there is no promise that a newer APK will work.
 
-The accepted update adds a targeted [GrapheneOS search compatibility fix](docs/SEARCH_CRASH_FIX.md),
+Stable **v1.2.0** adds a targeted [GrapheneOS search compatibility fix](docs/SEARCH_CRASH_FIX.md),
 cleaner settings/account navigation and optional **Smooth location updates**
 (OFF by default). It retains [personal Maps identity](docs/MAPS_IDENTITY.md),
 [native My Location](docs/NATIVE_RECENTER.md), [native heading](docs/NATIVE_HEADING.md),
@@ -30,8 +30,8 @@ Black theme and Satellite diagnostic/experimental patches are excluded.
 OFF if affected. Manual Satellite remains available.
 
 The maintainer accepted the candidate and approved stable publication.
-The generated catalog below identifies the published version; exact artifact
-verification is recorded in [Verification](docs/VERIFICATION.md).
+The published bundle and actual Manager remote-source update are verified;
+artifact evidence and boundaries are recorded in [Verification](docs/VERIFICATION.md).
 
 Default app name is **Maps**, installed separately as `io.github.dvredin.maps`.
 It stays on the original Maps card in Manager 1.33.0 without a new Clone card;
