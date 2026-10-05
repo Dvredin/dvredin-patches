@@ -1,3 +1,4 @@
+import json
 import subprocess
 import sys
 import tempfile
@@ -20,7 +21,10 @@ class CatalogPresentation(unittest.TestCase):
             self.assertIn(" Google Maps", summary)
             self.assertIn('align="top"> Maps', summary)
             self.assertNotIn("Ungoogled Maps", summary)
-            self.assertIn("33 patches", summary)
+            catalog = json.loads((ROOT / "patches-list.json").read_text())
+            expected = len(catalog["patches"])
+            self.assertGreater(expected, 0)
+            self.assertIn(f"{expected} patches", summary)
             self.assertIn("| Maps identity |", first)
             subprocess.run(command, cwd=ROOT, check=True, capture_output=True)
             self.assertEqual(first, readme.read_text())

@@ -49,6 +49,34 @@ fails, inspect which external objects actually exist before retrying. A successf
 workflow launch is not a published release. A failed attestation after publication
 is not an unpublished release.
 
+## Recover an existing, partially published stable tag
+
+If Semantic Release pushed the accepted tag but failed before uploading its asset,
+a plain rerun can consider that tag the last release and skip publication. Inspect
+the exact tag, generated metadata, release and assets first. Never delete/move the
+tag, guess another version or replace a published asset.
+
+After explicit maintainer recovery approval, use `recover-release.yml` from `main`
+with `owner_verified=true`, the existing stable `tag`, and its approved full
+`expected_sha`. Resolve that commit from the **remote repository**, not an inherited
+local/upstream tag with the same version. This is a narrow repair adapter around
+GitHub CLI and git, not another versioning engine: the ordinary Semantic Release
+workflow and configuration remain unchanged.
+
+Recovery checks out the exact tagged source, validates its already generated
+version/catalog/download URL, runs the existing source, behavior and dependency
+gates, and uses the maintained Gradle Android build. It stages a draft and its exact
+asset without clobbering existing files, attests that artifact, publishes/readbacks
+the same version, then restores the missing default-channel semantic note without
+force or overwriting a conflicting note. Existing mismatched assets/notes fail
+closed for review. A successful prior phase is not repeated unnecessarily; a
+partially failed recovery must be inspected before rerunning.
+
+The recovery artifact is retained even if a subsequent network operation fails.
+Finish the same remote Manager upgrade and cleanup gates below. Source/runtime
+acceptance remains attached to the immutable release commit, not the later commit
+that added the recovery workflow.
+
 ## Read back the exact result
 
 Verify the remote source commit/tag, release `draft`/`prerelease` flags, release

@@ -1,0 +1,112 @@
+name: Recover tagged release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing stable tag; never created or moved by recovery'
+        required: true
+        type: string
+      expected_sha:
+        description: 'Approved full commit already referenced by that tag'
+        required: true
+        type: string
+      owner_verified:
+        description: 'The maintainer explicitly approved this exact recovery'
+        required: true
+        type: boolean
+        default: false
+
+# Share the ordinary main-release lock; never race another publisher.
+concurrency:
+  group: release-refs/heads/main
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    if: github.ref_name == 'main' && inputs.owner_verified
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: read
+      id-token: write
+      attestations: write
+    env:
+      RELEASE_TAG: ${{ inputs.tag }}
+      RELEASE_SHA: ${{ inputs.expected_sha }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: control
+          fetch-depth: 0
+      - name: Recovery guards and regression tests
+        working-directory: control
+        run: |
+          python3 scripts/verify_repository.py
+          python3 -m unittest discover -s tests -p 'test_release_recovery.py' -v
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.expected_sha }}
+          fetch-depth: 0
+          path: source
+      - name: Validate immutable source and generated release metadata
+        id: target
+        working-directory: source
+        run: |
+          python3 ../control/scripts/recover_release.py validate --repo "$GITHUB_REPOSITORY" --tag "$RELEASE_TAG" --sha "$RELEASE_SHA"
+          printf 'asset=source/patches/build/libs/patches-%s.mpp\n' "${RELEASE_TAG#v}" >> "$GITHUB_OUTPUT"
+          python3 scripts/verify_repository.py
+          # Use current regression harness against byte-identical runtime/build sources.
+          # Old tags can contain assertions tied to the preceding generated catalog count.
+          git -C ../control diff --exit-code "$RELEASE_SHA" HEAD -- patches extensions tests/accepted-runtime-sha256.json gradle.properties settings.gradle.kts build.gradle.kts
+          python3 -m unittest discover -s ../control/tests -v
+      - uses: actions/setup-java@v6.0.0
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Extension behavior regressions
+        working-directory: source
+        run: ./gradlew -p tests test --no-daemon
+      - uses: pnpm/action-setup@v6.1.0
+        with:
+          version: 12.8.1
+          package_json_file: source/package.json
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: pnpm
+          cache-dependency-path: source/pnpm-lock.yaml
+      - name: Frozen release dependency verification
+        working-directory: source
+        run: |
+          pnpm install --frozen-lockfile --ignore-scripts
+          node --test tests/test_release_dependencies.cjs
+          pnpm audit --audit-level=high
+      - name: Rebuild exact tagged patch and extension sources
+        id: build
+        working-directory: source
+        run: ./gradlew :patches:buildAndroid --no-daemon
+      - name: Retain official recovery artifact
+        if: steps.build.outcome == 'success'
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: recovery-${{ inputs.tag }}-${{ inputs.expected_sha }}
+          path: ${{ steps.target.outputs.asset }}
+          if-no-files-found: error
+          retention-days: 7
+      - name: Stage exact asset without replacing any existing file
+        working-directory: source
+        run: python3 ../control/scripts/recover_release.py stage --repo "$GITHUB_REPOSITORY" --tag "$RELEASE_TAG" --sha "$RELEASE_SHA"
+      - name: Attest official recovery bundle before publishing
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-name: 'Dvredin Patches ${{ inputs.tag }}'
+          subject-path: ${{ steps.target.outputs.asset }}
+      - name: Publish and read back the existing version
+        working-directory: source
+        run: python3 ../control/scripts/recover_release.py publish --repo "$GITHUB_REPOSITORY" --tag "$RELEASE_TAG" --sha "$RELEASE_SHA"
+      - name: Restore missing semantic release channel note without overwriting
+        working-directory: source
+        run: python3 ../control/scripts/recover_release.py note --repo "$GITHUB_REPOSITORY" --tag "$RELEASE_TAG" --sha "$RELEASE_SHA"
