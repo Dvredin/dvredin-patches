@@ -35,7 +35,13 @@ def release_for(repo, tag):
     if result.returncode == 0:
         return json.loads(result.stdout)
     require('HTTP 404' in result.stderr, 'Release lookup failed; not treating it as absent')
-    return None
+    # GitHub's tag endpoint only finds published releases. Drafts must be read
+    # through the authenticated releases collection before deciding to create.
+    pages = json.loads(command('gh', 'api', '--paginate', '--slurp',
+                               f'repos/{repo}/releases?per_page=100').stdout)
+    matches = [release for page in pages for release in page if release['tag_name'] == tag]
+    require(len(matches) <= 1, 'Multiple releases for target tag; refusing ambiguity')
+    return matches[0] if matches else None
 
 
 def validate_identity(repo, tag, sha):

@@ -43,8 +43,19 @@ class ReleaseRecoveryTests(unittest.TestCase):
         with patch.object(recovery, 'command', return_value=subprocess.CompletedProcess([], 1, '', 'HTTP 403')):
             with self.assertRaises(RuntimeError):
                 recovery.release_for(self.repo, self.tag)
-        with patch.object(recovery, 'command', return_value=subprocess.CompletedProcess([], 1, '', 'HTTP 404')):
+        absent = [subprocess.CompletedProcess([], 1, '', 'HTTP 404'),
+                  subprocess.CompletedProcess([], 0, '[[]]', '')]
+        with patch.object(recovery, 'command', side_effect=absent):
             self.assertIsNone(recovery.release_for(self.repo, self.tag))
+
+    def test_draft_hidden_from_tag_endpoint_is_found_without_duplicate_create(self):
+        draft = self.release(assets=False)
+        responses = [subprocess.CompletedProcess([], 1, '', 'HTTP 404'),
+                     subprocess.CompletedProcess([], 0, json.dumps([[], [draft]]), '')]
+        with patch.object(recovery, 'command', side_effect=responses) as cmd:
+            self.assertEqual(recovery.release_for(self.repo, self.tag), draft)
+            self.assertIn('--paginate', cmd.call_args.args)
+            self.assertNotIn('create', cmd.call_args.args)
 
     def test_asset_conflicts_fail_closed(self):
         release = self.release()
