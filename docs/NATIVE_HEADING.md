@@ -1,6 +1,6 @@
 # Native heading for the Android location source
 
-Status: heading correction included in published **v1.1.0**. The maintainer
+Status: first published in **v1.1.0**, retained unchanged in **v1.2.0**. The maintainer
 confirmed heading and subsequently the combined `.local.4` application work.
 Historical `.local.3` checks follow; official release evidence and limits are
 recorded in [Verification](VERIFICATION.md).
@@ -34,7 +34,8 @@ compass. In Play services mode it executes the complete original selector.
 The stock UI restarts Maps when the source changes, rebuilding the clients.
 
 The correction is an internal dependency of **Location provider toggle**, not a
-new public patch or option: the source still contains 33 public patches.
+new public patch or option: the heading update kept the historical catalog at
+33 patches. The current v1.2.0 catalog has 34 after the separate search fix.
 It adds no compass engine, sensor permission, forced calibration, GPS bearing
 substitution, logging or application resets. Name `Maps`, personal package
 `io.github.dvredin.maps`, identity tracking, recenter and proxy behavior are unchanged.

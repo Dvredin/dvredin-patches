@@ -1,5 +1,9 @@
 # GrapheneOS search compatibility
 
+Published in stable **v1.2.0**. The release bundle and actual Manager Remote
+1.1.0-to-1.2.0 update are verified; [Verification](VERIFICATION.md) separates that
+evidence from primary-device acceptance and the unchanged Satellite limitation.
+
 The **Fix GrapheneOS search crash** patch contains a specific framework error
 encountered while Maps opens search and checks optional native power-saving support.
 The original probe reads `com.android.systemui/config_minmode_enabled`; the observed

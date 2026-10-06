@@ -1,6 +1,6 @@
 # Personal Maps identity and one Manager card
 
-This profile is included in published **v1.1.0**. Historical candidate checks
+This profile was first published in **v1.1.0** and is retained in **v1.2.0**. Historical candidate checks
 follow; current official publication and source-update evidence
 is recorded in [Verification](VERIFICATION.md).
 

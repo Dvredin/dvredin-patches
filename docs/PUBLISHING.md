@@ -92,6 +92,19 @@ Only report a stable release after these checks. Publish patch sources and `.mpp
 files, not vendor or patched application APKs and not Manager signing keys.
 Preserve signing continuity when the maintainer generates an application update.
 
+## Current completed publication — v1.2.0
+
+The accepted search/settings/smoothing update is published as stable **v1.2.0**.
+The interrupted Semantic Release tag was preserved; explicitly authorized recovery
+completed the official build, exact asset publication, attestation and missing
+channel note. Remote metadata/artifact readback and actual Manager Remote
+1.1.0-to-1.2.0 update passed. See [Verification](VERIFICATION.md) for the source,
+artifact, workflow and acceptance boundaries. No new version or runtime change
+was introduced by recovery. Publication is complete; no retry remains active.
+
+Future changes or releases require a new maintainer request and the applicable
+acceptance gates; this completed recovery is not standing publication permission.
+
 ## Initial publication completed
 
 Stable [v1.0.0](https://github.com/Dvredin/dvredin-patches/releases/tag/v1.0.0) passed
@@ -100,7 +113,7 @@ gates. See [verification and limits](VERIFICATION.md). Earlier preparation block
 were resolved; do not substitute those historical failures for current release state.
 This one-time approval does not authorize future stable dispatches automatically.
 
-## Accepted combined update
+## Historical combined update — v1.1.0
 
 The maintainer accepted `.local.4`, approved publication, and then explicitly
 authorized the reviewed dependency correction after the initial audit blocker.

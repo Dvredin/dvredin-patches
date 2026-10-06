@@ -1,12 +1,13 @@
 # Native My Location completion
 
-The correction is included in published **v1.1.0**. The historical
+The correction was first published in **v1.1.0** and is retained in **v1.2.0**. The historical
 `1.1.0-dev.local.2` candidate checks below establish
 its scope; current release status is tracked in [Verification](VERIFICATION.md).
 Original supported input remains `com.google.android.apps.maps`, version
 `26.36.04.973607363`. No new public patch or runtime extension is added: the
-correction is a dependency of **Location provider toggle**; the catalog remains
-33 patches / 1 application.
+correction is a dependency of **Location provider toggle**. That update kept the
+historical catalog at 33 patches / 1 application; v1.2.0 has 34 patches after the
+separate search fix.
 
 ## Confirmed cause
 

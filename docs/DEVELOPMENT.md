@@ -103,12 +103,14 @@ is not a passed gate; inspect the resulting state before retrying.
 
 ## Current release evidence
 
-Stable **v1.1.0** is published through the maintained official Gradle/Semantic
-Release workflow. Fresh build, extension behavior and dependency-source regressions,
-frozen install, audit and attestation passed. The independently downloaded asset
-matches its uploaded digest and all 124 executable entries of the official CI
-candidate. All 33 patches applied to the exact supported original input. Actual
-Manager Remote source update from 1.0.0 to 1.1.0, coexistence and cold Home passed.
+Stable **v1.2.0** is published from the unchanged accepted release tag. The
+explicitly approved [recovery path](PUBLISHING.md) completed the interrupted
+publication using the maintained Gradle build. Source/behavior/dependency gates,
+frozen install, audit, attestation and semantic-note restoration passed. The
+independently downloaded asset matches its uploaded digest and all 125 executable
+entries of the accepted official candidate, which applied all 34 patches to the
+supported original input. Actual Manager Remote update from 1.1.0 to 1.2.0,
+coexistence and cold Home passed. No Maps reinstall was part of this source update.
 See [verification and explicit limits](VERIFICATION.md).
 Earlier local GitHub registry access failures are not current CI failures; keep
 local package-read credentials separate from successful repository-write auth.
@@ -143,7 +145,7 @@ Both maintained CI workflows run `./gradlew -p tests test --no-daemon`. The
 maintainer subsequently accepted this exact candidate and approved publication.
 The first official Verify passed compilation but failed the release-tool audit.
 After the separately approved security pin, fresh Verify and stable Release passed.
-Stable is now v1.1.0. See [status history and exact CI evidence](RELEASE_STATUS.md);
+That historical update became v1.1.0. See [status history and exact CI evidence](RELEASE_STATUS.md);
 the initial audit failure and local registry failure are not current blockers.
 
 ## Reuse-first and diagnostics
