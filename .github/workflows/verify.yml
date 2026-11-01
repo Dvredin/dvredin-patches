@@ -46,7 +46,7 @@ jobs:
         run: ./gradlew :patches:buildAndroid --no-daemon
       - name: Retain compiled test candidate
         if: ${{ steps.build.outcome == 'success' }}
-        uses: actions/upload-artifact@v7.0.1
+        uses: actions/upload-artifact@v7.0.2
         with:
           name: patch-candidate-${{ github.sha }}
           path: patches/build/libs/*.mpp
